@@ -91,7 +91,7 @@
 \begin{spacing}{1.1}
 \hspace{-39.1mm}{\fontsize{10.5pt}{10.5pt}\sffamily\lsstyle Aalto University}
 
-\hspace{-39.1mm}{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle BACHELOR'S THESIS} {\sffamily\lsstyle 2017}
+\hspace{-39.1mm}{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle BACHELOR'S THESIS} {\sffamily\lsstyle 2018}
 \end{spacing}
 
 \vspace{12.7mm}
@@ -132,7 +132,7 @@ Advisor: \> docent Jarmo Malinen
 
 \begin{spacing}{.9}
 {\bfseries\sffamily\lsstyle Aalto University \\
-School of Science \\
+School of Electrical Engineering \\
 Bachelor’s Programme in Science and Technology}
 \end{spacing}
 } % Kappaleiden sisennys takaisin käyttöön
@@ -338,148 +338,21 @@ Bachelor’s Programme in Science and Technology}
 
 \pagenumbering{arabic}
 
-\chapter{Lorem ipsum}
+\chapter{Introduction}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus
-elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur
-dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id,
-vulputate a, magna. Donec vehicula augue eu neque. Pellentesque
-habitant morbi tristique senectus et netus et malesuada fames ac
-turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla
-et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit
-amet tortor gravida placerat. Integer sapien est, iaculis in, pretium
-quis, viverra ac, nunc. Praesent eget sem vel leo ultrices
-bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar
-at, mollis ac, nulla. Curabitur auctor semper nulla.  Donec varius
-orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis
-quis, diam. Duis eget orci sit amet orci dignissim rutrum.
+“The notion of ‘software engineering’ was first proposed in 1968” (Sommerville, 2011). Ever since the profession started software projects have become bigger and more complex. This is because the hardware has been growing even faster and so software engineers have been having a hard time keeping the increasing phase up (Frederick and Brooks, 1987). The increasing code complexity raises new problems with understanding existing code and increases probability of software flaws. Software complexity can be later decreased by refactoring code. Refactoring can mean e.g. removing duplicate code by abstraction or renaming and commenting code to make it more readable.
 
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel,
-wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at,
-lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed
-accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus
-a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut
-massa. Cras nec ante. Pellentesque a nulla.  Cum sociis natoque
-penatibus et magnis dis parturient montes, nascetur ridiculus
-mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum
-turpis. Pellentesque cursus luctus mauris.
+Software metric is a quantitative value calculated from a piece of code or even a whole software project. The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time. One of the main reasons to implement software measurements for projects is to replace reviews with metrics to define software quality. Tracking the quality of software makes it easier to plan and budget well beforehand which makes the software more profitable.
 
-Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat
-at, tincidunt tristique, libero. Vivamus viverra fermentum
-felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper
-elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae,
-placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula,
-eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula
-feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae
-enim. Pellentesque tincidunt purus vel magna. Integer non
-enim. Praesent euismod nunc eu purus.  Donec bibendum quam in
-tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate
-metus eu enim. Vestibulum pellentesque felis eu massa.
+ABB Drives manufactures industrial drives which are controlled by software. Drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago something that still exists in companies: software size and complexity increases over time. Without refactoring the software may become somewhat useless and understandable for the developers. Also if we spend too much time refactoring and improving the code, no new features gets developed and customers are left unsatisfied. In a big company it is hard to perceive the whole picture and so the happy medium of internal improving and development can be hard to find.
 
-Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae
-lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer
-adipiscing elit. In hac habitasse platea dictumst. Integer tempus
-convallis augue. Etiam facilisis. Nunc elementum fermentum
-wisi. Aenean placerat.  Ut imperdiet, enim sed gravida sollicitudin,
-felis odio placerat quam, ac pulvinar elit purus eget enim. Nunc vitae
-tortor. Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae
-risus porta vehicula.
+First the reader will get familiarized with the underlying theory of software metrics. Furthermore a part of the task is also to determine the core metrics by getting familiar with the most commonly used metrics and make conclusions. Later thesis tries to solve a small part of this problem and guide the development teams to the right direction by introducing a systematic software analysis. Analysis calculates different core software metrics and ideally represents a long-term graph to determine whether the quality of the software is increasing or decreasing and how rapid is the change.
 
-\section{Fusce mauris}
+The ultimate goal of this thesis is to help the company’s software development teams to decide when to refactor code and improve tools and dependencies and how much time should be used for it.
 
-Fusce mauris. Vestibulum luctus nibh at lectus. Sed bibendum, nulla a
-faucibus semper, leo velit ultricies tellus, ac venenatis arcu wisi
-vel nisl.  Vestibulum diam. Aliquam pellentesque, augue quis sagittis
-posuere, turpis lacus congue quam, in hendrerit risus eros eget
-felis. Maecenas eget erat in sapien mattis porttitor. Vestibulum
-porttitor. Nulla facilisi.  Sed a turpis eu lacus commodo
-facilisis. Morbi fringilla, wisi in dignissim interdum, justo lectus
-sagittis dui, et vehicula libero dui cursus dui. Mauris tempor ligula
-sed lacus. Duis cursus enim ut augue. Cras ac magna.  Cras
-nulla. Nulla egestas. Curabitur a leo. Quisque egestas wisi eget
-nunc. Nam feugiat lacus vel est. Curabitur consectetuer.
+\chapter{Theory behind software metrics}
 
-Suspendisse vel felis. Ut lorem lorem, interdum eu, tincidunt sit
-amet, laoreet vitae, arcu. Aenean faucibus pede eu ante. Praesent enim
-elit, rutrum at, molestie non, nonummy vel, nisl. Ut lectus eros,
-malesuada sit amet, fermentum eu, sodales cursus, magna. Donec eu
-purus. Quisque vehicula, urna sed ultricies auctor, pede lorem egestas
-dui, et convallis elit erat sed nulla. Donec luctus. Curabitur et
-nunc. Aliquam dolor odio, commodo pretium, ultricies non, pharetra in,
-velit. Integer arcu est, nonummy in, fermentum faucibus, egestas vel,
-odio.
-
-\subsection{Sed commodo posuere pede}
-
-Sed commodo posuere pede. Mauris ut est. Ut quis purus. Sed ac odio.
-Sed vehicula hendrerit sem. Duis non odio. Morbi ut dui. Sed accumsan
-risus eget odio. In hac habitasse platea dictumst. Pellentesque non
-elit.  Fusce sed justo eu urna porta tincidunt. Mauris felis odio,
-sollicitudin sed, volutpat a, ornare ac, erat. Morbi quis dolor. Donec
-pellentesque, erat ac sagittis semper, nunc dui lobortis purus, quis
-congue purus metus ultricies tellus. Proin et quam. Class aptent
-taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-hymenaeos. Praesent sapien turpis, fermentum vel, eleifend faucibus,
-vehicula eu, lacus.
-
-Pellentesque habitant morbi tristique senectus et netus et malesuada
-fames ac turpis egestas. Donec odio elit, dictum in, hendrerit sit
-amet, egestas sed, leo. Praesent feugiat sapien aliquet odio. Integer
-vitae justo.  Aliquam vestibulum fringilla lorem. Sed neque lectus,
-consectetuer at, consectetuer sed, eleifend ac, lectus. Nulla
-facilisi. Pellentesque eget lectus. Proin eu metus. Sed porttitor. In
-hac habitasse platea dictumst. Suspendisse eu lectus. Ut mi mi,
-lacinia sit amet, placerat et, mollis vitae, dui. Sed ante tellus,
-tristique ut, iaculis eu, malesuada ac, dui. Mauris nibh leo,
-facilisis non, adipiscing quis, ultrices a, dui.
-
-\subsection{Morbi luctus}
-
-Morbi luctus, wisi viverra faucibus pretium, nibh est placerat odio,
-nec commodo wisi enim eget quam. Quisque libero justo, consectetuer a,
-feugiat vitae, porttitor eu, libero. Suspendisse sed mauris vitae elit
-sollicitudin malesuada. Maecenas ultricies eros sit amet ante. Ut
-venenatis velit. Maecenas sed mi eget dui varius euismod. Phasellus
-aliquet volutpat odio. Vestibulum ante ipsum primis in faucibus orci
-luctus et ultrices posuere cubilia Curae; Pellentesque sit amet pede
-ac sem eleifend consectetuer. Nullam elementum, urna vel imperdiet
-sodales, elit ipsum pharetra ligula, ac pretium ante justo a
-nulla. Curabitur tristique arcu eu metus. Vestibulum lectus. Proin
-mauris. Proin eu nunc eu urna hendrerit faucibus. Aliquam auctor, pede
-consequat laoreet varius, eros tellus scelerisque quam, pellentesque
-hendrerit ipsum dolor sed augue. Nulla nec lacus.
-
-Suspendisse vitae elit. Aliquam arcu neque, ornare in, ullamcorper
-quis, commodo eu, libero. Fusce sagittis erat at erat tristique
-mollis. Maecenas sapien libero, molestie et, lobortis in, sodales
-eget, dui. Morbi ultrices rutrum lorem. Nam elementum ullamcorper
-leo. Morbi dui. Aliquam sagittis. Nunc placerat. Pellentesque
-tristique sodales est. Maecenas imperdiet lacinia velit. Cras non
-urna. Morbi eros pede, suscipit ac, varius vel, egestas non,
-eros. Praesent malesuada, diam id pretium elementum, eros sem dictum
-tortor, vel consectetuer odio sem sed wisi.
-
-\section{Sed feugiat}
-
-Sed feugiat. Cum sociis natoque penatibus et magnis dis parturient
-montes, nascetur ridiculus mus. Ut pellentesque augue sed
-urna. Vestibulum diam eros, fringilla et, consectetuer eu, nonummy id,
-sapien. Nullam at lectus. In sagittis ultrices mauris. Curabitur
-malesuada erat sit amet massa. Fusce blandit. Aliquam erat
-volutpat. Aliquam euismod. Aenean vel lectus. Nunc imperdiet justo nec
-dolor.
-
-Etiam euismod. Fusce facilisis lacinia dui. Suspendisse potenti. In mi
-erat, cursus id, nonummy sed, ullamcorper eget, sapien. Praesent
-pretium, magna in eleifend egestas, pede pede pretium lorem, quis
-consectetuer tortor sapien facilisis magna. Mauris quis magna varius
-nulla scelerisque imperdiet. Aliquam non quam. Aliquam porttitor quam
-a lacus.  Praesent vel arcu ut tortor cursus volutpat. In vitae pede
-quis diam bibendum placerat. Fusce elementum convallis neque. Sed
-dolor orci, scelerisque ac, dapibus nec, ultricies ut, mi. Duis nec
-dui quis leo sagittis commodo.
-
-
+Lorem ipsum.
 
 %%  LIITTEET  ------------------------------------------
 
