@@ -1,7 +1,7 @@
 \begin{filecontents*}{\jobname.xmpdata}
   \Title{Software metrics in long-term projects}
   \Author{Santeri Suitiala}
-  \Keywords{learning environment\sep pedagogical usability\sep error classification\sep automated assessment\sep teaching mathematics\sep STACK}
+  \Keywords{software\sep metrics\sep software quality}
   \Publisher{Aalto University}
 \end{filecontents*}
 \documentclass[oneside,pdfa]{aaltoseries}
@@ -14,15 +14,13 @@
 \usepackage[finnish,english]{babel}   % Kieli on englanti, tiivistelmässä suomi
 \usepackage{setspace}                 % Rivivälin säätämiseksi
 \usepackage{afterpage}                % Sivun taustaväri
+\usepackage{apacite}		  % Bibtex
 \microtypesetup{letterspace=25}       % Kannen harvaan välistykseen
-
-
 
 \author{Santeri Suitiala}
 \title{Software metrics in long-term projects}
 
 \begin{document}
-
 
 
 %%  KANSI  ---------------------------------------------
@@ -205,41 +203,7 @@ Bachelor’s Programme in Science and Technology}
 \vspace{.8mm}
 
 {\small
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus
-  elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur
-  dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer
-  id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque
-  habitant morbi tristique senectus et netus et malesuada fames ac
-  turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla
-  et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus
-  sit amet tortor gravida placerat. Integer sapien est, iaculis in,
-  pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices
-  bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar
-  at, mollis ac, nulla. Curabitur auctor semper nulla.  Donec varius
-  orci eget risus. Duis nibh mi, congue eu, accumsan eleifend,
-  sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum.
-
-  Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel,
-  wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at,
-  lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed
-  accumsan bibendum, erat ligula aliquet magna, vitae ornare odio
-  metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut
-  massa. Cras nec ante. Pellentesque a nulla.  Cum sociis natoque
-  penatibus et magnis dis parturient montes, nascetur ridiculus
-  mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum
-  turpis. Pellentesque cursus luctus mauris.
-
-  Nulla malesuada porttitor diam. Donec felis erat, congue non,
-  volutpat at, tincidunt tristique, libero. Vivamus viverra fermentum
-  felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper
-  elit. Proin fermentum massa ac quam. Sed diam turpis, molestie
-  vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum
-  ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit
-  ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia
-  nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer
-  non enim. Praesent euismod nunc eu purus.  Donec bibendum quam in
-  tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate
-  metus eu enim. Vestibulum pellentesque felis eu massa.
+  Lorem ipsum.
 }
 
 \vfill
@@ -267,41 +231,7 @@ Bachelor’s Programme in Science and Technology}
 \vspace{.8mm}
 
 {\small
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus
-  elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur
-  dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer
-  id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque
-  habitant morbi tristique senectus et netus et malesuada fames ac
-  turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla
-  et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus
-  sit amet tortor gravida placerat. Integer sapien est, iaculis in,
-  pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices
-  bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar
-  at, mollis ac, nulla. Curabitur auctor semper nulla.  Donec varius
-  orci eget risus. Duis nibh mi, congue eu, accumsan eleifend,
-  sagittis quis, diam. Duis eget orci sit amet orci dignissim rutrum.
-
-  Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel,
-  wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at,
-  lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed
-  accumsan bibendum, erat ligula aliquet magna, vitae ornare odio
-  metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut
-  massa. Cras nec ante. Pellentesque a nulla.  Cum sociis natoque
-  penatibus et magnis dis parturient montes, nascetur ridiculus
-  mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum
-  turpis. Pellentesque cursus luctus mauris.
-
-  Nulla malesuada porttitor diam. Donec felis erat, congue non,
-  volutpat at, tincidunt tristique, libero. Vivamus viverra fermentum
-  felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper
-  elit. Proin fermentum massa ac quam. Sed diam turpis, molestie
-  vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum
-  ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit
-  ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia
-  nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer
-  non enim. Praesent euismod nunc eu purus.  Donec bibendum quam in
-  tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate
-  metus eu enim. Vestibulum pellentesque felis eu massa.
+  Lorem ipsum.
 }
 
 \vfill
@@ -340,7 +270,7 @@ Bachelor’s Programme in Science and Technology}
 
 \chapter{Introduction}
 
-“The notion of ‘software engineering’ was first proposed in 1968” (Sommerville, 2011). Ever since the profession started software projects have become bigger and more complex. This is because the hardware has been growing even faster and so software engineers have been having a hard time keeping the increasing phase up (Frederick and Brooks, 1987). The increasing code complexity raises new problems with understanding existing code and increases probability of software flaws. Software complexity can be later decreased by refactoring code. Refactoring can mean e.g. removing duplicate code by abstraction or renaming and commenting code to make it more readable.
+“The notion of ‘software engineering’ was first proposed in 1968” \cite{sommerville2011software}. Ever since the profession started software projects have become bigger and more complex. This is because the hardware has been growing even faster and so software engineers have been having a hard time keeping the increasing phase up \cite{brooks1987no}. The increasing code complexity raises new problems with understanding existing code and increases probability of software flaws. Software complexity can be later decreased by refactoring code. Refactoring can mean e.g. removing duplicate code by abstraction or renaming and commenting code to make it more readable.
 
 Software metric is a quantitative value calculated from a piece of code or even a whole software project. The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time. One of the main reasons to implement software measurements for projects is to replace reviews with metrics to define software quality. Tracking the quality of software makes it easier to plan and budget well beforehand which makes the software more profitable.
 
@@ -356,46 +286,7 @@ Lorem ipsum.
 
 %%  LIITTEET  ------------------------------------------
 
-\appendix
-
-\chapter{Ut purus elit}
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus
-elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur
-dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id,
-vulputate a, magna. Donec vehicula augue eu neque. Pellentesque
-habitant morbi tristique senectus et netus et malesuada fames ac
-turpis egestas. Mauris ut leo. Cras viverra metus rhoncus sem. Nulla
-et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit
-amet tortor gravida placerat. Integer sapien est, iaculis in, pretium
-quis, viverra ac, nunc. Praesent eget sem vel leo ultrices
-bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar
-at, mollis ac, nulla. Curabitur auctor semper nulla.  Donec varius
-orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis
-quis, diam. Duis eget orci sit amet orci dignissim rutrum.
-
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel,
-wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at,
-lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed
-accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus
-a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut
-massa. Cras nec ante. Pellentesque a nulla.  Cum sociis natoque
-penatibus et magnis dis parturient montes, nascetur ridiculus
-mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum
-turpis. Pellentesque cursus luctus mauris.
-
-\section{Fusce mauris}
-
-Fusce mauris. Vestibulum luctus nibh at lectus. Sed bibendum, nulla a
-faucibus semper, leo velit ultricies tellus, ac venenatis arcu wisi
-vel nisl.  Vestibulum diam. Aliquam pellentesque, augue quis sagittis
-posuere, turpis lacus congue quam, in hendrerit risus eros eget
-felis. Maecenas eget erat in sapien mattis porttitor. Vestibulum
-porttitor. Nulla facilisi.  Sed a turpis eu lacus commodo
-facilisis. Morbi fringilla, wisi in dignissim interdum, justo lectus
-sagittis dui, et vehicula libero dui cursus dui. Mauris tempor ligula
-sed lacus. Duis cursus enim ut augue. Cras ac magna.  Cras
-nulla. Nulla egestas. Curabitur a leo. Quisque egestas wisi eget
-nunc. Nam feugiat lacus vel est. Curabitur consectetuer.
+\bibliographystyle{apacite}
+\bibliography{references}
 
 \end{document}
