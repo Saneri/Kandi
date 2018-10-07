@@ -48,7 +48,7 @@
 \vspace{2.2mm}
 
 \begin{spacing}{1.24}
-{\fontsize{14pt}{14pt}\bfseries\sffamily\lsstyle Deployments and utilization of software metrics in long-lasting software projects}
+{\fontsize{14pt}{14pt}\bfseries\sffamily\lsstyle Utilization and deployment of software metrics in long-lasting software projects}
 \end{spacing}
 
 \vspace{7.2mm}
@@ -95,18 +95,18 @@
 \vspace{12.7mm}
 
 \begin{spacing}{1.63}
-{\fontsize{17.8pt}{17.8pt}\selectfont Towards proper errors!}
+{\fontsize{17.8pt}{17.8pt}\selectfont Software metrics in long-life projects}
 \end{spacing}
 
 \vspace{10.5mm}
 
 \begin{spacing}{1.2}
-{\fontsize{13pt}{13pt}\selectfont The errors and their interpretation\\in automatically assessed exercises\\in mathematics}
+{\fontsize{13pt}{13pt}\selectfont Utilization and deployment of software metrics in long-lasting software project}
 \end{spacing}
 
 \vspace{10.6mm}
 
-{\fontsize{13.9pt}{13.9pt}\bfseries\sffamily\lsstyle Hannu Tiitu}
+{\fontsize{13.9pt}{13.9pt}\bfseries\sffamily\lsstyle Santeri Suitiala}
 
 \vfill
 
@@ -116,11 +116,12 @@
 Thesis submitted in partial fulfillment of the requirements for the
 degree of Bachelor of Science in Technology.
 
-Otaniemi, 27 Nov 2017
+Otaniemi, 8 Oct 2018
 
 \begin{tabbing}
-Supervisor:\hspace{6mm} \= professor Lauri Malmi \\
-Advisor: \> docent Jarmo Malinen
+Supervisor (ABB):\hspace{6mm} \= Jorma Keroneni \\
+Supervisor (Aalto): Marko Hinkkanen
+Advisor: \> Markus Turunen
 \end{tabbing}
 \vspace{-4mm}
 \end{spacing}
@@ -177,19 +178,23 @@ Bachelor’s Programme in Science and Technology}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
-{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Major}~~{\small Electronics and Electrical Engineering}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Code}~~{\small IL3011}
+{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Major}~~{\small Electronics and Electrical Engineering}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Code}~~{\small ????}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
-{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Supervisor}~~{\small Marko Hinkkanen}
+{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Supervisor (ABB)}~~{\small Jorma Keronen}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
-{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Advisor}~~{\small Jorma Keronen}
+{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Supervisor (Aalto)}~~{\small Marko Hinkkanen}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
-{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Level}~~{\small Bachelor's thesis}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Date}~~{\small 27 Nov 2017}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Pages}~~{\small 70}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Language}~~{\small English}
+{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Advisor}~~{\small Markus Turunen}
+
+\vspace{-2.4mm}\rule{\textwidth}{.75pt}
+
+{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Level}~~{\small Bachelor's thesis}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Date}~~{\small 8 Oct 2018}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Pages}~~{\small 6}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Language}~~{\small English}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
@@ -212,7 +217,7 @@ Bachelor’s Programme in Science and Technology}
 \begin{spacing}{.88}
 {\parindent0pt % Kappaleiden sisennys pois päältä
 
-\makebox[19mm][l]{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Keywords}\parbox[t]{123.6mm}{\raggedright\small learning environment, pedagogical usability, error classification, automated assessment, teaching mathematics, STACK}
+\makebox[19mm][l]{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Keywords}\parbox[t]{123.6mm}{\raggedright\small software metrics, software quality}
 
 \vspace{.5mm}\rule{\textwidth}{.75pt}
 
@@ -272,17 +277,46 @@ Bachelor’s Programme in Science and Technology}
 
 “The notion of ‘software engineering’ was first proposed in 1968” \cite{sommerville2011software}. Ever since the profession started software projects have become bigger and more complex. This is because the hardware has been growing even faster and so software engineers have been having a hard time keeping the increasing phase up \cite{brooks1987no}. The increasing code complexity raises new problems with understanding existing code and increases probability of software flaws. Software complexity can be later decreased by refactoring code. Refactoring can mean e.g. removing duplicate code by abstraction or renaming and commenting code to make it more readable.
 
-Software metric is a quantitative value calculated from a piece of code or even a whole software project. The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time. One of the main reasons to implement software measurements for projects is to replace reviews with metrics to define software quality. Tracking the quality of software makes it easier to plan and budget well beforehand which makes the software more profitable.
+Software metric is a quantitative value calculated from a piece of a code or even a whole software project. Software metrics are used to track software quality to determine whether the software has improved or not.  Knowing the direction of the software quality makes it possible to plan and give resources to fix software with poor quality.
 
-ABB Drives manufactures industrial drives which are controlled by software. Drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago something that still exists in companies: software size and complexity increases over time. Without refactoring the software may become somewhat useless and understandable for the developers. Also if we spend too much time refactoring and improving the code, no new features gets developed and customers are left unsatisfied. In a big company it is hard to perceive the whole picture and so the happy medium of internal improving and development can be hard to find.
+ABB Drives manufactures industrial drives which are controlled by software. Drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago is something that still exists in companies: software size and complexity increases over time. Without refactoring the software may become somewhat useless and understandable for the developers. Also if we spend too much time refactoring and improving the code, no new features gets developed and customers are left unsatisfied. In a big company it is hard to perceive the whole picture and so the happy medium of internal improving and development can be hard to find.
 
 First the reader will get familiarized with the underlying theory of software metrics. Furthermore a part of the task is also to determine the core metrics by getting familiar with the most commonly used metrics and make conclusions. Later thesis tries to solve a small part of this problem and guide the development teams to the right direction by introducing a systematic software analysis. Analysis calculates different core software metrics and ideally represents a long-term graph to determine whether the quality of the software is increasing or decreasing and how rapid is the change.
 
 The ultimate goal of this thesis is to help the company’s software development teams to decide when to refactor code and improve tools and dependencies and how much time should be used for it.
 
+%% CHAPTER 1
 \chapter{Theory behind software metrics}
 
+Software metric is a quantitative value calculated from a piece of a code or even a whole software project. Software metrics are used to track software quality from many different point of views. The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time. One of the main reasons to implement software measurements for projects is to replace reviews with metrics to define software quality \cite{sommerville2011software}. Tracking the quality of software makes it easier and more efficient to see whether software has improved or not. Knowing the direction of the software quality makes it possible to plan and give resources to fix software with poor quality. A simple example of a software metric is source lines of code (SLOC) which simple tells how many lines of code whole program has altogether \cite{nguyen2007sloc}.
+
+\section{Classification of software metrics}
+
 Lorem ipsum.
+
+\section{Halstead complexity measures}
+
+%% CHAPTER 2
+\chapter{Determing useful metrics}
+
+Lorem ipsum.
+
+%% CHAPTER 3
+\chapter{Implementing metrics for a development team}
+
+Lorem ipsum.
+
+These citations are for bibtex to show unused citations in the references section.
+
+\cite{tikka2014}
+
+\cite{coleman1994using}
+
+\cite{viljanen2015measuring}
+
+\cite{zhuo1993constructing}
+
+\cite{al2005analysis}
 
 %%  LIITTEET  ------------------------------------------
 
