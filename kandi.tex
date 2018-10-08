@@ -119,8 +119,8 @@ degree of Bachelor of Science in Technology.
 Otaniemi, 8 Oct 2018
 
 \begin{tabbing}
-Supervisor (ABB):\hspace{6mm} \= Jorma Keroneni \\
-Supervisor (Aalto): Marko Hinkkanen
+Supervisor (ABB):\hspace{6mm} \= Jorma Keronen \\
+Supervisor (Aalto):\hspace{6mm} \= Marko Hinkkanen \\
 Advisor: \> Markus Turunen
 \end{tabbing}
 \vspace{-4mm}
@@ -194,7 +194,7 @@ Bachelor’s Programme in Science and Technology}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
-{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Level}~~{\small Bachelor's thesis}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Date}~~{\small 8 Oct 2018}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Pages}~~{\small 6}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Language}~~{\small English}
+{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Level}~~{\small Bachelor's thesis}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Date}~~{\small 8 Oct 2018}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Pages}~~{\small 7}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Language}~~{\small English}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
@@ -245,7 +245,7 @@ Bachelor’s Programme in Science and Technology}
 \begin{spacing}{.88}
 {\parindent0pt % Kappaleiden sisennys pois päältä
 
-\makebox[21mm][l]{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Avainsanat}\parbox[t]{121.6mm}{\raggedright\small oppimisympäristö, pedagoginen käytettävyys, virheluokittelu, automaattinen tarkastaminen, matematiikan opetus, Stack}
+\makebox[21mm][l]{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Avainsanat}\parbox[t]{121.6mm}{\raggedright\small ohjelmistometriikat, ohjelmiston laatu}
 
 \vspace{.5mm}\rule{\textwidth}{.75pt}
 
@@ -273,6 +273,8 @@ Bachelor’s Programme in Science and Technology}
 
 \pagenumbering{arabic}
 
+
+%% ITRODUCTION
 \chapter{Introduction}
 
 “The notion of ‘software engineering’ was first proposed in 1968” \cite{sommerville2011software}. Ever since the profession started software projects have become bigger and more complex. This is because the hardware has been growing even faster and so software engineers have been having a hard time keeping the increasing phase up \cite{brooks1987no}. The increasing code complexity raises new problems with understanding existing code and increases probability of software flaws. Software complexity can be later decreased by refactoring code. Refactoring can mean e.g. removing duplicate code by abstraction or renaming and commenting code to make it more readable.
@@ -285,7 +287,9 @@ First the reader will get familiarized with the underlying theory of software me
 
 The ultimate goal of this thesis is to help the company’s software development teams to decide when to refactor code and improve tools and dependencies and how much time should be used for it.
 
-%% CHAPTER 1
+
+
+%% CHAPTER 2
 \chapter{Theory behind software metrics}
 
 Software metric is a quantitative value calculated from a piece of a code or even a whole software project. Software metrics are used to track software quality from many different point of views. The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time. One of the main reasons to implement software measurements for projects is to replace reviews with metrics to define software quality \cite{sommerville2011software}. Tracking the quality of software makes it easier and more efficient to see whether software has improved or not. Knowing the direction of the software quality makes it possible to plan and give resources to fix software with poor quality. A simple example of a software metric is source lines of code (SLOC) which simple tells how many lines of code whole program has altogether \cite{nguyen2007sloc}.
@@ -308,17 +312,32 @@ Lorem ipsum.
 
 Lorem ipsum.
 
-%% CHAPTER 2
-\chapter{Determing useful metrics}
+
+
+%% CHAPTER 3
+\chapter{Determining useful metrics}
 
 Determining the right software is not always a simple task. Measurements can be ambiguous due to the fact that the measurement outputs are just numbers. These number's real correlation to the software quality may be easy to misinterpret.
 
-%% CHAPTER 3
+\section{Source code examples}
+To really test if the metrics are correlating software quality we need to first determine low and high quality source code examples. These examples should be good or bad quality code according to the whole development teams opinion. After we have determined what good and bad quality concretely means we can start to figure out which metrics correlate to the quality. 
+
+%% CHAPTER 4
 \chapter{Implementing metrics for a development team}
 
-Lorem ipsum.
+After we are sure that the software metrics really are useful and capable of indicating software quality it is time to make use of the metrics. In this chapter I will implement a proof of concept and possibly introduce it for the software development team's use.
 
-These citations are for bibtex to show unused citations in the references section.
+.
+
+.
+
+.
+
+.
+
+.
+
+These citations are temporary for bibtex to show unused citations in the references section.
 
 \cite{tikka2014}
 
