@@ -292,7 +292,7 @@ The ultimate goal of this thesis is to help the company’s software development
 %% CHAPTER 2
 \chapter{Theory behind software metrics}
 
-Software metric is a quantitative value calculated from a piece of a code or even a whole software project. Software metrics are used to track software quality from many different point of views. The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time. One of the main reasons to implement software measurements for projects is to replace reviews with metrics to define software quality \cite{sommerville2011software}. Tracking the quality of software makes it easier and more efficient to see whether software has improved or not. Knowing the direction of the software quality makes it possible to plan and give resources to fix software with poor quality. A simple example of a software metric is source lines of code (SLOC) which simply tells the number of lines of code the whole program has altogether \cite{nguyen2007sloc}.
+Software measurement is a quantitative value calculated from a software process or system. A software metric can either be a software measurement or a function of many different software measurements. Software metrics are used to track e.g software quality or cost estimation. Tracking the quality of software makes it easier and more efficient to see whether software system and process has improved or not. Knowing the direction of the software quality makes it possible to plan and give resources to fix software or process with poor quality or efficiency. 
 
 \section{Classification of software metrics}
 
@@ -302,9 +302,13 @@ Software metric is a quantitative value calculated from a piece of a code or eve
 Figure 1: Software metric types
 \end{center}
 
-Software metric can be any metric that determines software quality in any way. There are defined sets of metrics e.g Halstead metrics \cite{al2005analysis}  but it is also possible to adjust an existing metric for specified software or implement a completely new metric. A software metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static code analysis.
+Software metrics can be divided into product, process and project metrics. Project metrics \cite{dineshthakur}. Project metrics help project managers to estimate projects by tracking for example amount of developers or delivered lines of code. This helps to estimate similar projects in the future. Process metrics measures values concerning software development processes. Thakur lists e.g. number of error found before the software release and conformity to schedule to be process metrics. These metrics help project stakeholder to perceive how the project is proceeding.
+Product metrics gives measurements from the developed software product \cite{sommerville2011software}.  A simple example of a process metric is source lines of code (SLOC) which simply tells the number of lines of code the whole program has altogether \cite{nguyen2007sloc}. Figure 1 tries to present and to help understand the division of different kind of software metrics. This thesis focuses on product metrics. 
 
+\section{Product metrics}
 
+Many defined sets of metrics exists. One defined set is e.g Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static code analysis. Dynamic metric such as uptime is easy to interpret as 100\% would be the wanted outcome. Static metrics has the problem that those often can often be unambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in other. That doesn't mean that other is better quality software than the other.
+The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time.
 
 \section{Halstead complexity measures}
 
