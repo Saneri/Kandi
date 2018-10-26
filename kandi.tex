@@ -15,6 +15,7 @@
 \usepackage{setspace}                 % Rivivälin säätämiseksi
 \usepackage{afterpage}                % Sivun taustaväri
 \usepackage{apacite}		  % Bibtex
+\usepackage{lastpage}
 \microtypesetup{letterspace=25}       % Kannen harvaan välistykseen
 
 \author{Santeri Suitiala}
@@ -116,7 +117,7 @@
 Thesis submitted in partial fulfillment of the requirements for the
 degree of Bachelor of Science in Technology.
 
-Otaniemi, 8 Oct 2018
+Otaniemi, \today
 
 \begin{tabbing}
 Supervisor (ABB):\hspace{6mm} \= Jorma Keronen \\
@@ -194,7 +195,7 @@ Bachelor’s Programme in Science and Technology}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
-{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Level}~~{\small Bachelor's thesis}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Date}~~{\small 8 Oct 2018}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Pages}~~{\small 7}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Language}~~{\small English}
+{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Level}~~{\small Bachelor's thesis}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Date}~~{\small \today}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Pages}~~{\small \pageref{LastPage}}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Language}~~{\small English}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
@@ -279,11 +280,11 @@ Bachelor’s Programme in Science and Technology}
 
 “The notion of ‘software engineering’ was first proposed in 1968” \cite{sommerville2011software}. Ever since the profession started, software projects have become bigger and more complex. This is because the hardware has been growing even faster and so software engineers have been having a hard time keeping the increasing phase up \cite{brooks1987no}. The increasing code complexity raises new problems with understanding existing code and increases probability of software flaws. Software complexity can be later decreased by refactoring code. Refactoring can mean e.g. removing duplicate code by abstracting, renaming and commenting the code to make it more readable.
 
-Software metric is a quantitative value calculated from a piece of a code or even a whole software project. Software metrics are used to track software quality to determine whether the software has improved or not.  Knowing the change of the software quality over time makes it possible to plan and allocate resources to fix software with poor quality.
+Software metric is a quantitative value calculated from a piece of a code, a whole software project or even from a software process. Software metrics are used to track software code and process attributes to determine whether the software has improved or not. This thesis focuses on static product metrics. Knowing the change of the software quality over time makes it possible to plan and allocate resources to fix software with poor quality.
 
-ABB Drives manufactures industrial drives which are controlled by software. Industrial drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago is something that still exists in companies: software size and complexity increases over time. Without refactoring, the software may become somewhat useless and understandable for the developers.  If too much time is spent refactoring and improving the code, no new feature gets developed and customers are left unsatisfied. In a big company, it is difficult to perceive the whole picture and so the happy medium of internal improving and development can be hard to find.
+ABB Drives manufactures industrial drives which are controlled by software. Industrial drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago is something that still exists in companies: software size and complexity increases over time. Without refactoring, the software may become ambiguous and useless for the developers.  If too much time is spent refactoring and improving the code, no new feature gets developed and customers are left unsatisfied. In a big company, it is difficult to perceive the whole picture and so the golden mean of internal improving and feature development can be hard to find.
 
-First the reader will get familiarized with the underlying theory of software metrics. Furthermore a part of the task is also to determine the core metrics by getting familiar with the most commonly used metrics and make conclusions. Later thesis tries to solve a small part of this problem and guide the development teams to the right direction by introducing a systematic software analysis. Analysis calculates different core software metrics and ideally represents a long-term graph to determine whether the quality of the software is increasing or decreasing and how rapid is the change.
+This thesis introduces the underlying theory of software metrics. Furthermore a part of the task is also to determine the core metrics by getting familiar with the most commonly used metrics, try selected metrics in the real world and make conclusions. Later this thesis tries to improve development process that the research and development department is using and guide the development teams to the right direction by introducing a systematic and automated daily software analysis. Analysis calculates different core software metrics and ideally represents a long-term graph to determine whether the quality and other attributes of the software is increasing or decreasing and how rapid is the change.
 
 The ultimate goal of this thesis is to help the company’s software development teams to decide when to refactor code and improve tools and dependencies and how much time should be used for it.
 
@@ -296,27 +297,31 @@ Software measurement is a quantitative value calculated from a software process 
 
 \section{Classification of software metrics}
 
-\begin{center}
-\includegraphics[scale=0.5]{metrictree.png}
-
-Figure 1: Software metric types
-\end{center}
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.05]{metrictree.png}
+\caption{Software metric types}
+\label{fig:metrictree}
+\end{figure}
 
 Software metrics can be divided into product, process and project metrics. Project metrics \cite{dineshthakur}. Project metrics help project managers to estimate projects by tracking for example amount of developers or delivered lines of code. This helps to estimate similar projects in the future. Process metrics measures values concerning software development processes. Thakur lists e.g. number of error found before the software release and conformity to schedule to be process metrics. These metrics help project stakeholder to perceive how the project is proceeding.
-Product metrics gives measurements from the developed software product \cite{sommerville2011software}.  A simple example of a process metric is source lines of code (SLOC) which simply tells the number of lines of code the whole program has altogether \cite{nguyen2007sloc}. Figure 1 tries to present and to help understand the division of different kind of software metrics. This thesis focuses on product metrics. 
+Product metrics gives measurements from the developed software product \cite{sommerville2011software}.  A simple example of a process metric is source lines of code (SLOC) which simply tells the number of lines of code the whole program has altogether \cite{nguyen2007sloc}. Figure~\ref{fig:metrictree} tries to present and to help understand the division of different kind of software metrics. This thesis focuses on product metrics. 
 
-\section{Product metrics}
+\subsection{Product metrics}
 
-Many defined sets of metrics exists. One defined set is e.g Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static code analysis. Dynamic metric such as uptime is easy to interpret as 100\% would be the wanted outcome. Static metrics has the problem that those often can often be unambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in other. That doesn't mean that other is better quality software than the other.
-The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time.
+Many defined sets of product metrics exists. One defined set is e.g Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static code analysis. Dynamic metric such as server uptime is easy to interpret as 100\% would be the wanted outcome. Static metrics has the problem that those can often be unambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in other. That doesn't mean that other is better quality software than the other. 
+
+The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time. Other approaching method for product metrics is comparing different results inside the project that is being analyzed. If a part of a software project has anomalous attributes, it should be investigated further. 
+
+\subsection{Traditional and object-oriented metrics}
+
+Traditional metrics can be calculated from any kind of software. Traditional product metrics are for example SLOC and cyclomatic complexity \cite{fenton1997software}.
 
 \section{Halstead complexity measures}
 
 Lorem ipsum.
 
-\section{Object-oriented metrics}
 
-Lorem ipsum.
 
 
 %% CHAPTER 3
@@ -335,59 +340,41 @@ To really test if the metrics are correlating software quality we need to first 
 
 
 %% CHAPTER 4
-\chapter{Implementing metrics for a development team}
+\chapter{Implementing analysis for a development team}
 
-After we are sure that the software metrics really are useful and capable of indicating software quality it is time to make use of the metrics. In this chapter I will implement a proof of concept and possibly introduce it for the software development team's use.
+After we are sure that the software metrics really are useful and capable of indicating software quality it is time to make use of the metrics. In this chapter a proof of concept will be implemented and possibly introduced for the software development team's use.
 
 \section{Essential tools for implementation}
 
 For a concrete implementation, some software tools are needed. The preference is that metrics are easily visible and understandable for each developer. Metrics are not meant to be a stressing factor which might happen if the metrics are forced to be seen on a day-to-day basis. Metrics should rather be an auxiliary tool to help developers perceive a bigger picture regarding source code. No comparison was done while choosing the tools and the main idea is to use tools that are easily available or already in use by the company.
 
-\subsection{CppDepend}
+\subsection{Software analysis tool}
 
-CppDepend (https://www.cppdepend.com/) is a commercial tool specifically made to analyze C/C++ code. It provides many of the common software metrics and has a good looking user interface. There are many other promising tools but investigating available options is out of scope on this thesis. Using this tool gives a good indication if software metrics are useful for the software development team or not. If the tool later turns out to be exchangeable with a more usable one, it can easily be replaced.
+CppDepend\footnote{https://www.cppdepend.com/} is a commercial tool specifically made to analyze C/C++ code. It provides many of the common software metrics and has a good-looking user interface. There are many other promising tools but investigating available options is out of scope on this thesis. Using this tool gives a good indication if software metrics are useful for the software development team or not. If the tool later turns out to be exchangeable with a more usable one, it can easily be replaced.
 
-\subsection{Jenkins}
+\subsection{Analysis automation tool}
 
-Jenkins (https://jenkins.io/) 
+Jenkins\footnote{https://jenkins.io/} is an open-source continuous integration tool. Jenkins is a server that can easily be set to trigger for example CppDepend to analyze source code daily. It can also be set to store artifacts which in this case would be the analysis outcome in Hypertext Markup Language (HTML) format.  The strength of Jenkins is that anyone in the research and development department who has access to the internet can observe the outcome of the analysis. Source code is updated to the latest version with the help of Git\footnote{https://git-scm.com/}. Git is a distributed version control system that is widely used by globally \cite{gitsurvey}.
 
 \subsection{Build server}
 
-Lorem ipsum.
+Analysis can not be done on any computer. It must be a computer that is constantly powered on and online. For this purpose a build server will be set up. Jenkins will be connected to this computer and will tell it to do the required commands.
 
 \section{System description}
 
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.06]{systemdesc.png}
+\caption{System funcionality}
+\label{fig:systemdesc}
+\end{figure}
+
+The selected tools will form a system that will create desired analysis daily to our Jenkins server where it can be inspected by everyone. The system functionality is illustrated in figure~\ref{fig:systemdesc}. 
+
+%% 5 CHAPTERS TOO MUCH?
+\chapter{Conclusions}
+
 Lorem ipsum.
-
-\section{Conclusions}
-
-Lorem ipsum.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-These citations are temporary for bibtex to show unused citations in the references section.
-
-\cite{tikka2014}
-
-\cite{coleman1994using}
-
-\cite{viljanen2015measuring}
-
-\cite{zhuo1993constructing}
-
-\cite{al2005analysis}
-
-\cite{jamali2006object}
-
-\cite{sarker2005overview}
 
 %%  LIITTEET  ------------------------------------------
 
