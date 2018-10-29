@@ -339,6 +339,9 @@ The software development team that is the target of this thesis is using an agil
 To really test if the metrics are correlating software quality we need to first determine low and high quality source code examples. These examples should be good or bad quality code according to the whole development teams opinion. After we have determined what good and bad quality concretely means we can start to figure out which metrics correlate to the quality. 
 
 \section{Trial and error approach}
+As there exists no set of predefined rules that could be used in this context, only logical way is to make a sophisticated guess about what the suitable metrics could be. This can be done iteratively so that chosen metrics are used a defined amount of time and then evaluated again. To do this there must be a way to determine whether the metrics are correlating the wanted attribute or not.
+
+
 
 
 %% CHAPTER 4
@@ -374,10 +377,14 @@ Analysis can not be done on any computer. It must be a computer that is constant
 The selected tools will form a system that will create desired analysis daily to our Jenkins server where it can be inspected by everyone. The system functionality is illustrated in figure~\ref{fig:systemdesc}. Jenkins can be set to periodically call a sequence of commands. The source code will be upgraded to its latest version with version control system, Git. After the source code is upgraded, it will be compiled and analyzed by the CppDepend tools. CppDepend will return a HTML file to the Jenkins server which will be stored and viewable in the Jenkins user interface.
 This way the process will be transparent and available to the whole software development team.
 
+
+
+
 %% 5 CHAPTERS TOO MUCH?
 \chapter{Conclusions}
 
 Lorem ipsum.
+
 
 %%  LIITTEET  ------------------------------------------
 
