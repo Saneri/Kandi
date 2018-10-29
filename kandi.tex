@@ -15,7 +15,8 @@
 \usepackage{setspace}                 % Rivivälin säätämiseksi
 \usepackage{afterpage}                % Sivun taustaväri
 \usepackage{apacite}		  % Bibtex
-\usepackage{lastpage}
+\usepackage{lastpage}                  % Sivumäärä
+\usepackage{hyperref}                  % Kappalereferointi
 \microtypesetup{letterspace=25}       % Kannen harvaan välistykseen
 
 \author{Santeri Suitiala}
@@ -292,6 +293,7 @@ The ultimate goal of this thesis is to help the company’s software development
 
 %% CHAPTER 2
 \chapter{Theory behind software metrics}
+\label{chap:theory}
 
 Software measurement is a quantitative value calculated from a software process or system. A software metric can either be a software measurement or a function of many different software measurements. Software metrics are used to track e.g software quality or cost estimation. Tracking the quality of software makes it easier and more efficient to see whether software system and process has improved or not. Knowing the direction of the software quality makes it possible to plan and give resources to fix software or process with poor quality or efficiency. 
 
@@ -315,7 +317,7 @@ The magnitude of the metric does not matter. We are more interested about the ch
 
 \subsection{Traditional and object-oriented metrics}
 
-Traditional metrics can be calculated from any kind of software. Traditional product metrics are for example SLOC and cyclomatic complexity \cite{fenton1997software}.
+Traditional metrics can be calculated from any kind of software even if the source code is object-oriented. These metrics can be categorized as "non-object-oriented" metrics.  Traditional product metrics are for example SLOC and cyclomatic complexity \cite{fenton1997software}. Object-oriented metrics (OOM) are specific for object-oriented programming languages. A study has estimated corrective maintenance cost saving to be 42\% when OOM are being used \cite{sarker2005overview}.
 
 \section{Halstead complexity measures}
 
@@ -327,11 +329,11 @@ Lorem ipsum.
 %% CHAPTER 3
 \chapter{Determining useful metrics}
 
-Determining the right software is not always a simple task. Measurements can be ambiguous due to the fact that the measurement outputs are just numbers. These number's real correlation to the software quality may be easy to misinterpret.
+Determining the right software metrics is not always a simple task. In this case. the target will be static product metrics (see \autoref{chap:theory}). No predefined package of metrics exists that works for every software project. Every project is unique which means that new set of metrics should be selected for each project. However if two projects have a lot in common, the same metrics can be applied. Even after defining metrics, static measurements can be ambiguous due to the fact that the measurement outputs are just numbers. The real correlation of the measurements to the software quality may be easy to misinterpret. The measurement data must be analyzed in order to be able to understand what attributes, if any, it correlates \cite{sommerville2011software}. 
 
 \section{Software metrics in agile development process}
 
-The software development team that is the target of this thesis is using an agile software development process. Agile methods are 
+The software development team that is the target of this thesis is using an agile software development process. Agile is not a software development process but rather a set of rules that agile processes try to follow \cite{agilemanifesto}.
 
 \section{Source code examples}
 To really test if the metrics are correlating software quality we need to first determine low and high quality source code examples. These examples should be good or bad quality code according to the whole development teams opinion. After we have determined what good and bad quality concretely means we can start to figure out which metrics correlate to the quality. 
@@ -369,7 +371,8 @@ Analysis can not be done on any computer. It must be a computer that is constant
 \label{fig:systemdesc}
 \end{figure}
 
-The selected tools will form a system that will create desired analysis daily to our Jenkins server where it can be inspected by everyone. The system functionality is illustrated in figure~\ref{fig:systemdesc}. 
+The selected tools will form a system that will create desired analysis daily to our Jenkins server where it can be inspected by everyone. The system functionality is illustrated in figure~\ref{fig:systemdesc}. Jenkins can be set to periodically call a sequence of commands. The source code will be upgraded to its latest version with version control system, Git. After the source code is upgraded, it will be compiled and analyzed by the CppDepend tools. CppDepend will return a HTML file to the Jenkins server which will be stored and viewable in the Jenkins user interface.
+This way the process will be transparent and available to the whole software development team.
 
 %% 5 CHAPTERS TOO MUCH?
 \chapter{Conclusions}
