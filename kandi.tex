@@ -283,7 +283,7 @@ Bachelor’s Programme in Science and Technology}
 
 Software metric is a quantitative value calculated from a piece of a code, a whole software project or even from a software process. Software metrics are used to track software code and process attributes to determine whether the software has improved or not. This thesis focuses on static product metrics. Knowing the change of the software quality over time makes it possible to plan and allocate resources to fix software with poor quality.
 
-ABB Drives manufactures industrial drives which are controlled by software. Industrial drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago is something that still exists in companies: software size and complexity increases over time. Without refactoring, the software may become ambiguous and useless for the developers.  If too much time is spent refactoring and improving the code, no new feature gets developed and customers are left unsatisfied. In a big company, it is difficult to perceive the whole picture and so the golden mean of internal improving and feature development can be hard to find.
+ABB Drives manufactures industrial drives which are controlled by software. Industrial drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago is something that still exists in companies: software size and complexity increases over time. Without refactoring, the software may become ambiguous and difficult to modify for the developers. If the project source code is too complicated, modifying might become a high risk factor. Futhermore, if too much time is spent refactoring and improving the code, no new feature gets developed and customers are left unsatisfied. In a big company, it is difficult to perceive the whole picture and so the golden mean of internal improving and feature development can be hard to find.
 
 This thesis introduces the underlying theory of software metrics. Furthermore a part of the task is also to determine the core metrics by getting familiar with the most commonly used metrics, try selected metrics in the real world and make conclusions. Later this thesis tries to improve development process that the research and development department is using and guide the development teams to the right direction by introducing a systematic and automated daily software analysis. Analysis calculates different core software metrics and ideally represents a long-term graph to determine whether the quality and other attributes of the software is increasing or decreasing and how rapid is the change.
 
@@ -319,10 +319,19 @@ The magnitude of the metric does not matter. We are more interested about the ch
 
 Traditional metrics can be calculated from any kind of software even if the source code is object-oriented. These metrics can be categorized as "non-object-oriented" metrics.  Traditional product metrics are for example SLOC and cyclomatic complexity \cite{fenton1997software}. Object-oriented metrics (OOM) are specific for object-oriented programming languages. A study has estimated corrective maintenance cost saving to be 42\% when OOM are being used \cite{sarker2005overview}.
 
-\section{Halstead complexity measures}
+\section{Structure vs size}
+
+\section{Software complexity and maintainaility}
 
 Lorem ipsum.
 
+\subsection{Halstead metrics}
+
+Lorem ipsum.
+
+\section{Software modularity and reusability}
+
+Lorem ipsum.
 
 
 
@@ -340,6 +349,13 @@ To really test if the metrics are correlating software quality we need to first 
 
 \section{Trial and error approach}
 As there exists no set of predefined rules that could be used in this context, only logical way is to make a sophisticated guess about what the suitable metrics could be. This can be done iteratively so that chosen metrics are used a defined amount of time and then evaluated again. To do this there must be a way to determine whether the metrics are correlating the wanted attribute or not.
+
+%muistiinpano
+Recently, management has stated clear instructions that software quality must be improved in ABB. A certain part of the working effort is allowed to be used forsource code refactoring and internal improving.
+-Avoiding bugs 
+-complexity = cyclomatic complexity, NPath?
+-reusability (modularity) = affarent, efferent coupling
+-maintainability (readablity) = LOC and what else?
 
 
 
@@ -383,7 +399,7 @@ This way the process will be transparent and available to the whole software dev
 %% 5 CHAPTERS TOO MUCH?
 \chapter{Conclusions}
 
-Lorem ipsum.
+It has become clear that software metrics are an important factor in the modern software development business.
 
 
 %%  LIITTEET  ------------------------------------------
