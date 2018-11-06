@@ -299,6 +299,9 @@ Software measurement is a quantitative value calculated from a software process 
 
 \section{Classification of software metrics}
 
+Software metrics can be divided into product, process and project metrics. Project metrics \cite{dineshthakur} help project managers to estimate projects by tracking for example amount of developers or delivered lines of code. This helps to estimate similar projects in the future. Process metrics measures values concerning software development processes. Thakur lists e.g. number of errors found before the software release and conformity to schedule to be process metrics. These metrics help project stakeholder to perceive how the project is proceeding.
+Product metrics gives measurements from the developed software product \cite{sommerville2011software}.  A simple example of a process metric is source lines of code (SLOC) which simply tells the number of lines of code the whole program has altogether \cite{nguyen2007sloc}. Figure~\ref{fig:metrictree} present and help to understand the division of different kind of software metrics. This thesis focuses on product metrics. 
+
 \begin{figure}[t!]
 \centering
 \includegraphics[scale=0.05]{metrictree.png}
@@ -306,26 +309,19 @@ Software measurement is a quantitative value calculated from a software process 
 \label{fig:metrictree}
 \end{figure}
 
-Software metrics can be divided into product, process and project metrics. Project metrics \cite{dineshthakur}. Project metrics help project managers to estimate projects by tracking for example amount of developers or delivered lines of code. This helps to estimate similar projects in the future. Process metrics measures values concerning software development processes. Thakur lists e.g. number of error found before the software release and conformity to schedule to be process metrics. These metrics help project stakeholder to perceive how the project is proceeding.
-Product metrics gives measurements from the developed software product \cite{sommerville2011software}.  A simple example of a process metric is source lines of code (SLOC) which simply tells the number of lines of code the whole program has altogether \cite{nguyen2007sloc}. Figure~\ref{fig:metrictree} tries to present and to help understand the division of different kind of software metrics. This thesis focuses on product metrics. 
-
 \subsection{Product metrics}
 
-Many defined sets of product metrics exists. One defined set is e.g Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static code analysis. Dynamic metric such as server uptime is easy to interpret as 100\% would be the wanted outcome. Static metrics has the problem that those can often be unambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in other. That doesn't mean that other is better quality software than the other. 
+Many defined sets of product metrics exists. One defined set is e.g Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static code analysis. Dynamic metric such as server uptime is easy to interpret as 100\% would be the wanted outcome. Static metrics has the problem that those can often be unambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in other. That doesn't mean that other is better quality software than the other. This thesis study static software metrics.
 
-The magnitude of the metric does not matter. We are more interested about the change of the metric over a defined amount of time. Other approaching method for product metrics is comparing different results inside the project that is being analyzed. If a part of a software project has anomalous attributes, it should be investigated further. 
+The magnitude of a static product metric does not matter. We are more interested about the change of the metric over a defined amount of time. Other approaching method for static metrics is comparing different results inside the project that is being analyzed. If a part of a software project has anomalous attributes, it should be investigated further. 
 
 \subsection{Traditional and object-oriented metrics}
 
-Traditional metrics can be calculated from any kind of software even if the source code is object-oriented. These metrics can be categorized as "non-object-oriented" metrics.  Traditional product metrics are for example SLOC and cyclomatic complexity \cite{fenton1997software}. Object-oriented metrics (OOM) are specific for object-oriented programming languages. A study has estimated corrective maintenance cost saving to be 42\% when OOM are being used \cite{sarker2005overview}.
+Traditional metrics can be calculated from any kind of software even if the source code is object-oriented. These metrics can be categorized as "non-object-oriented" metrics. Traditional metrics present size of the program and help stake holders to perceive a more accurate picture about what kind of program is being developed. Traditional static metrics are for example SLOC and cyclomatic complexity \cite{fenton1997software}.  
 
-\section{Structure vs size}
+Object-oriented metrics (OOM) are specific for object-oriented programming languages. OOM measurements present structure of a project and tells for example if classes are abstract enough for the software to be maintainable. A study has estimated corrective maintenance cost saving to be 42\% when OOM are being used \cite{sarker2005overview}. A good example of OOM is Chidamber and Kemerer Metrics of then referred as CK Metrics \cite{chidamber1994metrics}.
 
 \section{Software complexity and maintainaility}
-
-Lorem ipsum.
-
-\subsection{Halstead metrics}
 
 Lorem ipsum.
 
@@ -333,12 +329,20 @@ Lorem ipsum.
 
 Lorem ipsum.
 
+%-Avoiding bugs 
+%-complexity = cyclomatic complexity, NPath?
+%-reusability (modularity) = affarent, efferent coupling
+%-maintainability (readablity) = LOC and what else?
 
 
 %% CHAPTER 3
 \chapter{Determining useful metrics}
 
 Determining the right software metrics is not always a simple task. In this case. the target will be static product metrics (see \autoref{chap:theory}). No predefined package of metrics exists that works for every software project. Every project is unique which means that new set of metrics should be selected for each project. However if two projects have a lot in common, the same metrics can be applied. Even after defining metrics, static measurements can be ambiguous due to the fact that the measurement outputs are just numbers. The real correlation of the measurements to the software quality may be easy to misinterpret. The measurement data must be analyzed in order to be able to understand what attributes, if any, it correlates \cite{sommerville2011software}. 
+
+\section{Motivation to implement metrics}
+
+Recently, upper management has stated clear instructions that software quality must be improved in ABB. A certain part of the working effort is allowed to be used for source code refactoring and internal improving. Static software analysis will be implemented to help control 
 
 \section{Software metrics in agile development process}
 
@@ -350,12 +354,6 @@ To really test if the metrics are correlating software quality we need to first 
 \section{Trial and error approach}
 As there exists no set of predefined rules that could be used in this context, only logical way is to make a sophisticated guess about what the suitable metrics could be. This can be done iteratively so that chosen metrics are used a defined amount of time and then evaluated again. To do this there must be a way to determine whether the metrics are correlating the wanted attribute or not.
 
-%muistiinpano
-Recently, management has stated clear instructions that software quality must be improved in ABB. A certain part of the working effort is allowed to be used forsource code refactoring and internal improving.
--Avoiding bugs 
--complexity = cyclomatic complexity, NPath?
--reusability (modularity) = affarent, efferent coupling
--maintainability (readablity) = LOC and what else?
 
 
 
