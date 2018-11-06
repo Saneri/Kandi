@@ -344,9 +344,13 @@ Determining the right software metrics is not always a simple task. In this case
 
 Recently, upper management has stated clear instructions that software quality must be improved in ABB. A certain part of the working effort is allowed to be used for source code refactoring and internal improving. Static software analysis will be implemented to help control 
 
-\section{Software metrics in agile development process}
+\subsection{Software metrics in agile development process}
 
 The software development team that is the target of this thesis is using an agile software development process. Agile is not a software development process but rather a set of rules that agile processes try to follow \cite{agilemanifesto}.
+
+\section{Code smells}
+
+Static software analysis contains possibility to use code smells (see \autoref{chap:sofanatool}). Code smell is a small and fast check for any characteristic that might indicate a software problem \ref{FowledCodesmell}. A smell does not mean that a problem exists but rather that the source code should be reviewed and, if a problem exists, fixed. Code smell usage might be valuable but in a bigger project, so many smells will be present that the few important smells, that are crucial for the project quality, will not be found. Code smells does not add much value when used in static software analysis and should rather be used to check quality on each commit to check smells for the files to be committed \cite{tufano2015and}.
 
 \section{Source code examples}
 To really test if the metrics are correlating software quality we need to first determine low and high quality source code examples. These examples should be good or bad quality code according to the whole development teams opinion. After we have determined what good and bad quality concretely means we can start to figure out which metrics correlate to the quality. 
@@ -368,6 +372,7 @@ After we are sure that the software metrics really are useful and capable of ind
 For a concrete implementation, some software tools are needed. The preference is that metrics are easily visible and understandable for each developer. Metrics are not meant to be a stressing factor which might happen if the metrics are forced to be seen on a day-to-day basis. Metrics should rather be an auxiliary tool to help developers perceive a bigger picture regarding source code. No comparison was done while choosing the tools and the main idea is to use tools that are easily available or already in use by the company.
 
 \subsection{Software analysis tool}
+\label{chap:sofanatool}
 
 CppDepend\footnote{https://www.cppdepend.com/} is a commercial tool specifically made to analyze C/C++ code. It provides many of the common software metrics and has a good-looking user interface. There are many other promising tools but investigating available options is out of scope on this thesis. Using this tool gives a good indication if software metrics are useful for the software development team or not. If the tool later turns out to be exchangeable with a more usable one, it can easily be replaced.
 
