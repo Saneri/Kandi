@@ -315,17 +315,26 @@ Many defined sets of product metrics exists. One defined set is e.g Halstead met
 
 The magnitude of a static product metric does not matter. We are more interested about the change of the metric over a defined amount of time. Other approaching method for static metrics is comparing different results inside the project that is being analyzed. If a part of a software project has anomalous attributes, it should be investigated further. 
 
+\subsection{Static metrics}
+
+Lorem ipsum.
+
 \subsection{Traditional and object-oriented metrics}
 
 Traditional metrics can be calculated from any kind of software even if the source code is object-oriented. These metrics can be categorized as "non-object-oriented" metrics. Traditional metrics present size of the program and help stake holders to perceive a more accurate picture about what kind of program is being developed. Traditional static metrics are for example SLOC and cyclomatic complexity \cite{fenton1997software}.  
 
 Object-oriented metrics (OOM) are specific for object-oriented programming languages. OOM measurements present structure of a project and tells for example if classes are abstract enough for the software to be maintainable. A study has estimated corrective maintenance cost saving to be 42\% when OOM are being used \cite{sarker2005overview}. A good example of OOM is Chidamber and Kemerer Metrics of then referred as CK Metrics \cite{chidamber1994metrics}.
 
-\section{Software complexity and maintainaility}
+\section{Software quality}
+\label{chap:quality}
+
+Software quality can be defined by calculating different quality attributes such as maintainablity or reusability.
+
+\subsection{Software complexity and maintainaility}
 
 Lorem ipsum.
 
-\section{Software modularity and reusability}
+\subsection{Software modularity and reusability}
 
 Lorem ipsum.
 
@@ -340,9 +349,9 @@ Lorem ipsum.
 
 Determining the right software metrics is not always a simple task. In this case. the target will be static product metrics (see \autoref{chap:theory}). No predefined package of metrics exists that works for every software project. Every project is unique which means that new set of metrics should be selected for each project. However if two projects have a lot in common, the same metrics can be applied. Even after defining metrics, static measurements can be ambiguous due to the fact that the measurement outputs are just numbers. The real correlation of the measurements to the software quality may be easy to misinterpret. The measurement data must be analyzed in order to be able to understand what attributes, if any, it correlates \cite{sommerville2011software}. 
 
-\section{Motivation to implement metrics}
+\section{Motivation to implement static analysis}
 
-Recently, upper management has stated clear instructions that software quality must be improved in ABB. A certain part of the working effort is allowed to be used for source code refactoring and internal improving. Static software analysis will be implemented to help control 
+Recently, upper management has stated clear instructions that software quality must be improved in the company. A certain part of the working effort is allowed to be used for source code refactoring and internal improving. Static software analysis will be implemented to help stake holders to perceive a picture of different quality attributes of the software. As stated, software complexity is commonly increasing and the target company of this thesis is no different. 
 
 \subsection{Software metrics in agile development process}
 
@@ -356,7 +365,7 @@ Static software analysis contains possibility to use code smells (see \autoref{c
 To really test if the metrics are correlating the wanted software quality attributes, we need to first determine low and high quality source code examples \cite{coleman1994using}. These examples should be good or bad quality code according to the whole development teams opinion. After we have determined what good and bad quality concretely means we can start to figure out which metrics correlate to the quality. 
 
 \section{Trial and error approach}
-As there exists no set of predefined rules that could be used in this context, only logical way is to make a sophisticated guess about what the suitable metrics could be. This can be done iteratively so that chosen metrics are used a defined amount of time and then evaluated again. To do this there must be a way to determine whether the metrics are correlating the wanted attribute or not.
+As there exists no set of predefined rules that could be used in this context, only logical way is to make a sophisticated guess about what the suitable metrics could be. This can be done iteratively so that chosen metrics are used a defined amount of time and then evaluated again. To do this there must be a way to determine whether the metrics are correlating the wanted attribute or not. One of the goals of this thesis is to implement a first iteration of metrics by choosing metrics according to literature and guessing. The meaning of each chosen metric must be known. If the quality attribute correspondence of a chosen metric is uncertain, it will be impossible to use correctly and will become a number on the board without meaning.
 
 
 
@@ -403,6 +412,14 @@ This way the process will be transparent and available to the whole software dev
 \chapter{Conclusions}
 
 It has become clear that software metrics are an important factor in the modern software development business.
+
+Quality is a big concern in large software projects that take long time to develop.
+
+The company can analyze output data of the made static software analysis and possibly decide common quality standards for software development.
+
+
+
+
 
 
 %%  LIITTEET  ------------------------------------------
