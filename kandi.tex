@@ -180,7 +180,7 @@ Bachelor’s Programme in Science and Technology}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
-{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Major}~~{\small Electronics and Electrical Engineering}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Code}~~{\small ????}
+{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Major}~~{\small Electronics and Electrical Engineering}\hfill{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Code}~~{\small ELEC3013}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
@@ -283,11 +283,13 @@ Bachelor’s Programme in Science and Technology}
 
 Software metric is a quantitative value calculated from a piece of a code, a whole software project or even from a software process. Software metrics are used to track software code and process attributes to determine whether the software has improved or not. This thesis focuses on static product metrics. Knowing the change of the software quality over time makes it possible to plan and allocate resources to fix software with poor quality.
 
-ABB Drives manufactures industrial drives which are controlled by software. Industrial drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago is something that still exists in companies: software size and complexity increases over time. Without refactoring, the software may become ambiguous and difficult to modify for the developers. If the project source code is too complicated, modifying might become a high risk factor. Futhermore, if too much time is spent refactoring and improving the code, no new feature gets developed and customers are left unsatisfied. In a big company, it is difficult to perceive the whole picture and so the golden mean of internal improving and feature development can be hard to find.
+ABB Drives manufactures industrial drives which are controlled by software. Industrial drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features, which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago is something that still exists in modern companies: software size and complexity increases over time. Without refactoring, the software may become ambiguous and difficult to modify for the developers. If the project source code is too complicated, modifying might become a high risk factor. On the other hand, if too much time is spent refactoring and improving the code, no new feature gets developed and customers are left unsatisfied. In a big company, it is difficult to perceive the whole picture and so the golden mean of internal improving and feature development can be hard to find.
 
-This thesis introduces the underlying theory of software metrics. Furthermore a part of the task is also to determine the core metrics by getting familiar with the most commonly used metrics, try selected metrics in the real world and make conclusions. Later this thesis tries to improve development process that the research and development department is using and guide the development teams to the right direction by introducing a systematic and automated daily software analysis. Analysis calculates different core software metrics and ideally represents a long-term graph to determine whether the quality and other attributes of the software is increasing or decreasing and how rapid is the change.
+This thesis introduces the underlying theory of software metrics. Furthermore a part of the task is also to determine the core metrics by getting familiar with the most commonly used metrics, try selected metrics in the real world and make conclusions. In a long term, this thesis aims to improve the understanding of software quality with the help of systematic and automatic daily static software analysis.  Analysis calculates different core software metrics and ideally represents a long-term graph to determine whether the quality and other attributes of the software is increasing or decreasing and how rapid is the change.
 
-The ultimate goal of this thesis is to help the company’s software development teams to decide when to refactor code and improve tools and dependencies and how much time should be used for it.
+The ultimate goal of this thesis is to help the company’s software development teams and management to decide when to refactor code and improve tools and dependencies and how much time should be used for it.
+
+
 
 
 
@@ -295,7 +297,7 @@ The ultimate goal of this thesis is to help the company’s software development
 \chapter{Theory behind software metrics}
 \label{chap:theory}
 
-Software measurement is a quantitative value calculated from a software process or system. A software metric can either be a software measurement or a function of many different software measurements. Software metrics are used to track e.g software quality or cost estimation. Tracking the quality of software makes it easier and more efficient to see whether software system and process has improved or not. Knowing the direction of the software quality makes it possible to plan and give resources to fix software or process with poor quality or efficiency. 
+Software measurement is a quantitative value calculated from a software process or system. A software metric can either be a software measurement or a function of many different software measurements. Software metrics are used to track e.g software quality or cost estimation. Tracking the quality of software makes it easier and more efficient to see whether software system or process has improved or not. Knowing the direction of the software quality makes it possible to plan and give resources to fix software or process with poor quality or efficiency. 
 
 \section{Classification of software metrics}
 
@@ -311,9 +313,7 @@ Product metrics gives measurements from the developed software product \cite{som
 
 \subsection{Product metrics}
 
-Many defined sets of product metrics exists. One defined set is e.g Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static code analysis. Dynamic metric such as server uptime is easy to interpret as 100\% would be the wanted outcome. Static metrics has the problem that those can often be unambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in other. That doesn't mean that other is better quality software than the other. This thesis study static product metrics. Dynamic metrics are also very important for projects but the company is already using 
-
-The magnitude of a static product metric does not matter. We are more interested about the change of the metric over a defined amount of time. Other approaching method for static metrics is comparing different results inside the project that is being analyzed. If a part of a software project has anomalous attributes, it should be investigated further. 
+Many defined sets of product metrics exists. One defined set is e.g Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static code analysis. Dynamic metric such as server uptime is easy to interpret as 100\% would be the wanted outcome. Static metrics has the problem that those can often be ambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in other. That doesn't mean that other is better quality software than the other. This thesis study static product metrics. Dynamic metrics are also very important for projects but the company is already using 
 
 \subsection{Static metrics}
 
@@ -393,8 +393,6 @@ Jenkins\footnote{https://jenkins.io/} is an open-source continuous integration t
 
 Analysis can not be done on any computer. It must be a computer that is constantly powered on and online. This way the analysis will be run constantly and enables continuous data for different graphs. For this purpose a build server will be set up. Jenkins will be connected to this computer and will tell the server to do the required commands. A local copy of the source code is stored in the server and it will always have the latest version of the software available by using Get before any analysis.
 
-\section{System description}
-
 \begin{figure}[t!]
 \centering
 \includegraphics[scale=0.06]{systemdesc.png}
@@ -402,8 +400,13 @@ Analysis can not be done on any computer. It must be a computer that is constant
 \label{fig:systemdesc}
 \end{figure}
 
-The selected tools will form a system that will create desired analysis daily to our Jenkins server where it can be inspected by everyone. The system functionality is illustrated in figure~\ref{fig:systemdesc}. Jenkins can be set to periodically call a sequence of commands. The source code will be upgraded to its latest version with version control system, Git. After the source code is upgraded, it will be compiled and analyzed by the CppDepend tools. CppDepend will return a HTML file to the Jenkins server which will be stored and viewable in the Jenkins user interface.
+\section{System description}
+
+The selected tools will form a system that will create desired analysis daily to the Jenkins server where it can be inspected by everyone. The system functionality is illustrated in figure~\ref{fig:systemdesc}. Jenkins can be set to periodically call a sequence of commands. In this the period will be one day. The source code will be upgraded to its latest version with version control system, Git. After the source code is upgraded, it will be compiled and analyzed by the CppDepend tools. CppDepend will return analysis artifacts as a HTML file to the Jenkins server, which will be stored and viewable in the Jenkins user interface.
 This way the process will be transparent and available to the whole software development team.
+
+The whole process takes only about ten minutes to run and is not a strenuous task for the build server. The analysis tool does an incremental analysis, which means that if some part of the source code is not changed, it will be copied from the last report and not analyzed again. 
+
 
 
 
@@ -417,7 +420,7 @@ Quality is a big concern in large software projects that take long time to devel
 
 The company can analyze output data of the made static software analysis and possibly decide common quality standards for software development.
 
-
+The next step is to implement the static analysis for other development teams aswell. This is made easier by making the scripts and Jenkins configurations easy to modify.
 
 
 
