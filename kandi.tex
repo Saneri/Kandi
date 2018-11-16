@@ -328,11 +328,11 @@ Object-oriented metrics (OOM) are specific for object-oriented programming langu
 \section{Software quality}
 \label{chap:quality}
 
-As bigger and more complex software systems is being developed, the need for quality in these systems has raised. In the 1960s the growth of software projects led to projects lacking maintainability, reusability and reliability \cite{sommerville2011software}. This lead to different approaches to control software quality in order to make software with less defects and more profit. Defining software quality can be problematic because there exists no one single truth for software quality. Quality has many different attributes such as reliability, security and portability \cite{sommerville2011software}. Every quality attribute can not be taken into account at the same time as improving one attribute of the software can have a decreasing effect on other attribute. Only some of the attributes can be chosen to define if a project has good quality or not. This can lead to conflicts between stakeholders as they can have differentiating points of view and quality attribute preferences about what defines the quality of a software project. Quality management is particularly important for large software systems that takes years to develop. On smaller systems, quality management can be useful but not as mandatory.
+As bigger and more complex software systems are being developed, the need for quality in these systems has raised. In the 1960s the growth of software projects led to projects lacking maintainability, reusability and reliability \cite{sommerville2011software}. This caused the initiation of different approaches to control software quality in order to make software with less defects and more profit. Defining software quality can be problematic because there exists no one single truth for software quality. Quality has many different attributes such as reliability, security and portability \cite{sommerville2011software}. Every quality attribute can not be taken into account at the same time as improving one attribute of the software can have a decreasing effect on other attribute. Only some of the attributes can be chosen to define if a project has good quality or not. This can lead to conflicts between stakeholders as they can have differentiating points of view and quality attribute preferences about what defines the quality of a software project. Quality management is particularly important for large software systems that takes years to develop. On smaller systems, quality management can be useful but not as mandatory.
 
-\subsection{Software complexity and maintainaility}
+\subsection{Software complexity and maintainability}
 
-Software complexity measurement is considered as an important factor in software maintainability \cite{banker1989software}. Software has essential complexity that is needed in order to have a functional system and non-essential complexity that is made by accident and can be removed \ref{softcomplex2014}. This means that software must have some level of complexity. Most widely used metric for complexity has been McCabe’s Cyclomatic Complexity \cite{banker1989software}. The maintenance of a source code be two or three times more expensive than \cite{banker1989software}.
+Software complexity measurement is considered as an important factor in software maintainability \cite{banker1989software}. Software has essential complexity that is needed in order to have a functional system and non-essential complexity that is made by accident and can be removed \cite{softcomplex2014}. This means that software must have some level of complexity. The maintenance of a source code can be two or three times more expensive than the implementation \cite{banker1989software}. Most widely used metric for complexity has been McCabe’s Cyclomatic Complexity \cite{banker1989software}. The maintenance of a source code be two or three times more expensive than \cite{banker1989software}.
 
 \subsection{Software modularity and reusability}
 
@@ -357,16 +357,26 @@ Recently, upper management has stated clear instructions that software quality m
 
 The software development team that is the target of this thesis is using an agile software development process. Agile is not a software development process but rather a set of rules that agile processes try to follow \cite{agilemanifesto}.
 
-\section{Code smells}
+\section{Trial and error approach}
+As there exists no set of predefined rules that could be used in this context, only logical way is to make a sophisticated guess about what the suitable metrics could be. This can be done iteratively so that chosen metrics are used a defined amount of time and then evaluated again. To do this there must be a way to determine whether the metrics are correlating the wanted attribute or not. One of the goals of this thesis is to implement a first iteration of metrics by choosing metrics according to literature and guessing. The meaning of each chosen metric must be known. If the quality attribute correspondence of a chosen metric is uncertain, it will be impossible to use correctly and will become a number on the board, without meaning.
 
-Static software analysis contains possibility to use code smells (see \autoref{chap:sofanatool}). Code smell is a small and fast check for any characteristic that might indicate a software problem \ref{fowlercodesmell}. A smell does not mean that a problem exists but rather that the source code should be reviewed and, if a problem exists, fixed. Code smell usage might be valuable but in a bigger project, so many smells will be present that the few important smells, that are crucial for the project quality, will not be found. Code smells does not add much value when used in static software analysis and should rather be used to check quality on each commit to check smells for the files to be committed \cite{tufano2015and}. This means that code smells are not implemented to the analysis. If needed, a development team should implement a separate code analysis to analyze each commit to the source code. This could be achieved for example with tools like Microsoft Style Cop\footnote{https://github.com/StyleCop/StyleCop}. The goal of this thesis is to implement a static software analysis which is run daily and not on each commit. Code smells will not be implemented to the analysis. 
+\subsection{Code smells}
+
+Static software analysis contains possibility to use code smells (see \autoref{chap:sofanatool}). Code smell is a small and fast check for any characteristic that might indicate a software problem \cite{fowlercodesmell}. A smell does not mean that a problem exists but rather that the source code should be reviewed and, if a problem exists, fixed. Code smell usage might be valuable but in a bigger project, so many smells will be present that the few important smells, that are crucial for the project quality, will not be found. Code smells does not add much value when used in static software analysis and should rather be used to check quality on each commit to check smells for the files to be committed \cite{tufano2015and}. This means that code smells are not implemented to the analysis. If needed, a development team should implement a separate code analysis to analyze each commit to the source code. This could be achieved for example with tools like Microsoft Style Cop\footnote{https://github.com/StyleCop/StyleCop}. The goal of this thesis is to implement a static software analysis which is run daily and not on each commit. Code smells will not be implemented to the analysis. 
+
+\subsection{Modularity}
+
+Lorem ipsum.
+
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.8]{metrics.png}
+\caption{Choosed metrics}
+\label{fig:metrics}
+\end{figure}
 
 \section{Source code examples}
 To really test if the metrics are correlating the wanted software quality attributes, we need to first determine low and high quality source code examples \cite{coleman1994using}. These examples should be good or bad quality code according to the whole development teams opinion. After we have determined what good and bad quality concretely means we can start to figure out which metrics correlate to the quality. 
-
-\section{Trial and error approach}
-As there exists no set of predefined rules that could be used in this context, only logical way is to make a sophisticated guess about what the suitable metrics could be. This can be done iteratively so that chosen metrics are used a defined amount of time and then evaluated again. To do this there must be a way to determine whether the metrics are correlating the wanted attribute or not. One of the goals of this thesis is to implement a first iteration of metrics by choosing metrics according to literature and guessing. The meaning of each chosen metric must be known. If the quality attribute correspondence of a chosen metric is uncertain, it will be impossible to use correctly and will become a number on the board without meaning.
-
 
 
 
