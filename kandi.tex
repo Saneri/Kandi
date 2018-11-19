@@ -14,7 +14,7 @@
 \usepackage[finnish,english]{babel}   % Kieli on englanti, tiivistelmässä suomi
 \usepackage{setspace}                 % Rivivälin säätämiseksi
 \usepackage{afterpage}                % Sivun taustaväri
-\usepackage{apacite}		  % Bibtex
+\usepackage{apacite}		  % Lähdeluettelo (Bibtex)
 \usepackage{lastpage}                  % Sivumäärä
 \usepackage{hyperref}                  % Kappalereferointi
 \microtypesetup{letterspace=25}       % Kannen harvaan välistykseen
@@ -317,7 +317,8 @@ Many defined sets of product metrics exists. One defined set is e.g Halstead met
 
 \subsection{Static metrics}
 
-The magnitude of a static product metric does not matter. We are more interested about the change of the metric over a defined amount of time. Other approaching method for static metrics is comparing different results inside the project that is being analyzed. If a part of a software project has anomalous attributes, it should be investigated further. 
+Static metrics can either be inspected by comparing the measurement from different files and modules or by plotting metric trend data. Measurements can be ambiguous because the outcome depends from many different factors. For example used programming language is one factor. One approaching method for static metrics is comparing different results inside the project that is being analyzed. If a part of a software project has anomalous attributes, it should be investigated further. Other method is to define a limit for a good measurement according to literature or just guessing and later adjusting the limit according to own preferences.
+When inspecting trend, the magnitude of a static product metric does not matter. Trends of metrics tells if the quality of software is increasing or decreasing to give more profound perceiving of a project.
 
 \subsection{Traditional and object-oriented metrics}
 
@@ -330,13 +331,27 @@ Object-oriented metrics (OOM) are specific for object-oriented programming langu
 
 As bigger and more complex software systems are being developed, the need for quality in these systems has raised. In the 1960s the growth of software projects led to projects lacking maintainability, reusability and reliability \cite{sommerville2011software}. This caused the initiation of different approaches to control software quality in order to make software with less defects and more profit. Defining software quality can be problematic because there exists no one single truth for software quality. Quality has many different attributes such as reliability, security and portability \cite{sommerville2011software}. Every quality attribute can not be taken into account at the same time as improving one attribute of the software can have a decreasing effect on other attribute. Only some of the attributes can be chosen to define if a project has good quality or not. This can lead to conflicts between stakeholders as they can have differentiating points of view and quality attribute preferences about what defines the quality of a software project. Quality management is particularly important for large software systems that takes years to develop. On smaller systems, quality management can be useful but not as mandatory.
 
-\subsection{Software complexity and maintainability}
+\subsection{Software complexity}
+\label{chap:complexity}
 
-Software complexity measurement is considered as an important factor in software maintainability \cite{banker1989software}. Software has essential complexity that is needed in order to have a functional system and non-essential complexity that is made by accident and can be removed \cite{softcomplex2014}. This means that software must have some level of complexity. The maintenance of a source code can be two or three times more expensive than the implementation \cite{banker1989software}. Most widely used metric for complexity has been McCabe’s Cyclomatic Complexity \cite{banker1989software}. The maintenance of a source code be two or three times more expensive than \cite{banker1989software}.
+Structural software complexity measurement is considered as an important factor in software maintainability \cite{banker1989software}. Software has essential complexity that is needed in order to have a functional system and non-essential complexity that is made by accident and can be removed \cite{softcomplex2014}. This means that software must have some level of complexity, but some of the complexity can be removed with refactoring. Unfortunately, complexity is only a number and the amount of non-essential complexity is undefinable. Nevertheless, complexity measurement can hot spot complex parts of a project and indicate, whether complexity is increasing or decreasing. Complex code should be refactored into smaller tasks to make code more understandable and more easily maintainable.  The maintenance of a source code can be two or three times more expensive than the implementation \cite{banker1989software}. Most widely used metric for complexity has been McCabe’s cyclomatic complexity \cite{banker1989software}. Code with high cyclomatic complexity has many independent execute paths and is difficult to underestand. 
 
-\subsection{Software modularity and reusability}
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=1]{cohesioncoupling.jpg}
+\caption{Cohesion and coupling}
+\label{fig:cohesioncoupling}
+\end{figure}
 
-Lorem ipsum.
+\subsection{Software modularity}
+\label{chap:modularity}
+
+Modularity tells how source code is structured. Modularity is split into relationships between the elements inside a module, cohesion, and relationships between modules, coupling \cite{stevens1999structured}. An example of cohesion and coupling is illustrated in \autoref{fig:cohesioncoupling}. For example module 1 would have one cohesion relationship and three coupling relationships from other modules. Modules can be packages, domains, namespaces or something else, depending which programming language is being used \cite{gupta2009package}.
+
+When structured right, modularity decreases complexity as discussed in \autoref{chap:complexity}. Structured code help developers to change the code later easier as the code is clearly divided in many different modules. Other aspect of modularity is reusability. Modules should be independent as possible to be reusable, meaning that coupling should be as low as possible \autoref{fig:cohesioncoupling}. If coupling is low, changing an element inside a module means that no other modules must be changed, making the module more independent and reusable. Cohesion inside a module should be high enough to make a module useful. It makes no sense to make many modules that only contains one element because the idea of modularization is to group similar elements together. If modules are independent from other modules, those can be reused in other projects or in other parts of the project while still preserving maintainability. If modules are not independent, changing a piece of a code might change something from other modules and makes refactoring a much more difficult task.
+
+Coupling is divided into two parts: efferent coupling and afferent coupling \cite{gupta2009package}. Efferent coupling means, how many elements from other modules are dependent of the elements inside the module under inspection. Afferent coupling is the opposite, meaning how many elements from inside the inspected module is dependent of outside modules. If module has high efferent and low affarent coupling the module is instable. High affarent and low efferent coupling means that the module is stable. Instability is not a bad attribute but a module should clearly be either stable or instable to have a clear meaning \cite{gupta2009package}.
+
 
 %-Avoiding bugs 
 %-complexity = cyclomatic complexity, NPath?
@@ -344,39 +359,48 @@ Lorem ipsum.
 %-maintainability (readablity) = LOC and what else?
 
 
+
+
+
 %% CHAPTER 3
 \chapter{Determining useful metrics}
 
-Determining the right software metrics is not always a simple task. In this case. the target will be static product metrics (see \autoref{chap:theory}). No predefined package of metrics exists that works for every software project. Every project is unique which means that new set of metrics should be selected for each project. However if two projects have a lot in common, the same metrics can be applied. Even after defining metrics, static measurements can be ambiguous due to the fact that the measurement outputs are just numbers. The real correlation of the measurements to the software quality may be easy to misinterpret. The measurement data must be analyzed in order to be able to understand what attributes, if any, it correlates \cite{sommerville2011software}. 
+Determining the right software metrics is not always a simple task. In this case, the target will be static product metrics (see \autoref{chap:theory}). No predefined package of metrics exists that works for every software project. Every project is unique which means that new set of metrics should be selected for each project. However if two projects have a lot in common, the same metrics can be applied. Even after defining metrics, static measurements can be ambiguous due to the fact that the measurement outputs are just numbers. The real correlation of the measurements to the software quality may be easy to misinterpret. The measurement data must be analyzed in order to be able to understand what attributes, if any, it correlates \cite{sommerville2011software}. 
 
 \section{Motivation to implement static analysis}
 
 Recently, upper management has stated clear instructions that software quality must be improved in the company. A certain part of the working effort is allowed to be used for source code refactoring and internal improving. Static software analysis will be implemented to help stake holders to perceive a picture of different quality attributes of the software. As stated, software complexity is commonly increasing and the target company of this thesis is no different. 
 
-\subsection{Software metrics in agile development process}
-
-The software development team that is the target of this thesis is using an agile software development process. Agile is not a software development process but rather a set of rules that agile processes try to follow \cite{agilemanifesto}.
+%\subsection{Software metrics in agile development process}
+%
+%The software development team that is the target of this thesis is using an agile software development process. Agile is not a software development process but rather a set of rules that agile %processes try to follow \cite{agilemanifesto}.
 
 \section{Trial and error approach}
+
 As there exists no set of predefined rules that could be used in this context, only logical way is to make a sophisticated guess about what the suitable metrics could be. This can be done iteratively so that chosen metrics are used a defined amount of time and then evaluated again. To do this there must be a way to determine whether the metrics are correlating the wanted attribute or not. One of the goals of this thesis is to implement a first iteration of metrics by choosing metrics according to literature and guessing. The meaning of each chosen metric must be known. If the quality attribute correspondence of a chosen metric is uncertain, it will be impossible to use correctly and will become a number on the board, without meaning.
 
 \subsection{Code smells}
 
 Static software analysis contains possibility to use code smells (see \autoref{chap:sofanatool}). Code smell is a small and fast check for any characteristic that might indicate a software problem \cite{fowlercodesmell}. A smell does not mean that a problem exists but rather that the source code should be reviewed and, if a problem exists, fixed. Code smell usage might be valuable but in a bigger project, so many smells will be present that the few important smells, that are crucial for the project quality, will not be found. Code smells does not add much value when used in static software analysis and should rather be used to check quality on each commit to check smells for the files to be committed \cite{tufano2015and}. This means that code smells are not implemented to the analysis. If needed, a development team should implement a separate code analysis to analyze each commit to the source code. This could be achieved for example with tools like Microsoft Style Cop\footnote{https://github.com/StyleCop/StyleCop}. The goal of this thesis is to implement a static software analysis which is run daily and not on each commit. Code smells will not be implemented to the analysis. 
 
-\subsection{Modularity}
+\subsection{Complexity metrics}
 
-Lorem ipsum.
+Three complexity metrics will be selected to analyze maintainability (see: \autoref{chap:complexity}) from different points of view. Cyclomatic complexity is a widely used metric that tells number of ways that a program can be executed. It is a good way to see, for example, if a part of a program  has a complex switch sentence or something similar, that is difficult to read.
+Maintainability index is a number that is a combination of different metrics that has been stated to correlate maintainability well. This metric is the most unambiguous metric that is being selected because a higher number means better maintainability. Maintainability index helps less experienced programmers to understand, whether complexity is increasing or decreasing. Third is duplicate code which tells percentage of code duplications in the code base. If, for example, a method is found in two different places, changing of that method means that the change must be implemented twice.
 
 \begin{figure}[t!]
 \centering
 \includegraphics[scale=0.8]{metrics.png}
-\caption{Choosed metrics}
+\caption{The chosen metrics}
 \label{fig:metrics}
 \end{figure}
 
+\subsection{Modularity metrics}
+
+Also three metrics that tend to correlate modularity, are being selected. Afferent and efferent coupling (see \autoref{chap:modularity}) will tell how mixed the modules are. Modules should have low coupling and they should be either stable or instable as possible. Coupling will be inspected in module level but could also be analyzed for class level to see how stable or instable individual classes are. Class level coupling however, is not selected as core metrics in this case. Cohesion means total coupling between classes inside each module. If cohesion is low, the inspected module might be useless meaning that either more elements must be added or the few elements that the module has, must be moved elsewhere. These three metrics can be very ambiguous if not understood correctly. Modular refactoring can be very laborious and might be almost impossible or too much of a time waste, if the project is big and heavily coupled. However it might offer a big improvement concerning reusability and maintainability. The chosen metrics and their main corresponding attributes are listed in \autoref{fig:metrics}. The metrics may correspond to other quality attributes aswell. 
+
 \section{Source code examples}
-To really test if the metrics are correlating the wanted software quality attributes, we need to first determine low and high quality source code examples \cite{coleman1994using}. These examples should be good or bad quality code according to the whole development teams opinion. After we have determined what good and bad quality concretely means we can start to figure out which metrics correlate to the quality. 
+To really test if the metrics are correlating the wanted software quality attributes, low and high quality source code examples are needed to be determined \cite{coleman1994using}. These examples should be good or bad quality code according to the whole development teams opinion. After good and bad quality has been concretely defined, figuring out which metrics correlate to the quality can be initiated. 
 
 
 
@@ -384,7 +408,7 @@ To really test if the metrics are correlating the wanted software quality attrib
 %% CHAPTER 4
 \chapter{Implementing analysis for a development team}
 
-After we are sure that the software metrics really are useful and capable of indicating software quality it is time to make use of the metrics. In this chapter a proof of concept will be implemented and possibly introduced for the software development team's use.
+After making sure that the software metrics really are useful and capable of indicating software quality it is time to make use of the metrics. In this chapter a proof of concept will be implemented and possibly introduced for the software development team's use.
 
 \section{Essential tools for implementation}
 
@@ -401,7 +425,7 @@ Jenkins\footnote{https://jenkins.io/} is an open-source continuous integration t
 
 \subsection{Build server}
 
-Analysis can not be done on any computer. It must be a computer that is constantly powered on and online. This way the analysis will be run constantly and enables continuous data for different graphs. For this purpose a build server will be set up. Jenkins will be connected to this computer and will tell the server to do the required commands. A local copy of the source code is stored in the server and it will always have the latest version of the software available by using Get before any analysis.
+Analysis can not be done on any computer. It must be a computer that is constantly powered on and online. This way the analysis will be run constantly and enables continuous data for different graphs. For this purpose a build server will be set up. Jenkins will be connected to this computer and will tell the server to do the required commands. A local copy of the source code is stored in the server and it will always have the latest version of the software available by using Git before any analysis.
 
 \begin{figure}[t!]
 \centering
@@ -415,24 +439,30 @@ Analysis can not be done on any computer. It must be a computer that is constant
 The selected tools will form a system that will create desired analysis daily to the Jenkins server where it can be inspected by everyone. The system functionality is illustrated in figure~\ref{fig:systemdesc}. Jenkins can be set to periodically call a sequence of commands. In this the period will be one day. The source code will be upgraded to its latest version with version control system, Git. After the source code is upgraded, it will be compiled and analyzed by the CppDepend tools. CppDepend will return analysis artifacts as a HTML file to the Jenkins server, which will be stored and viewable in the Jenkins user interface.
 This way the process will be transparent and available to the whole software development team.
 
-The whole process takes only about ten minutes to run and is not a strenuous task for the build server. The analysis tool does an incremental analysis, which means that if some part of the source code is not changed, it will be copied from the last report and not analyzed again. 
+The whole process takes only about ten minutes to run and is not a strenuous task for the build server. The analysis tool does an incremental analysis, which means that if some part of the source code is not changed, it will be copied from the last report and not analyzed again.
 
 
 
 
 
-%% 5 CHAPTERS TOO MUCH?
+%% CHAPTER 5
 \chapter{Conclusions}
 
-It has become clear that software metrics are an important factor in the modern software development business.
-
 Quality is a big concern in large software projects that take long time to develop.
+It has become clear that software metrics are an important factor in the modern software development business. Software metrics are not very widely studied and the needed metrics differs on each project and company. 
 
-The company can analyze output data of the made static software analysis and possibly decide common quality standards for software development.
+\section{What is needed}
 
-The next step is to implement the static analysis for other development teams aswell. This is made easier by making the scripts and Jenkins configurations easy to modify.
+The software development department is concerned with the overall quality of software projects. It takes time to understand poorly written and structured code. Refactoring can help to make the code base more understandable and maintainable and to ensure that complexity does not get out of control. This is a huge concern, as the software that is being developed is supposed to be support many years, or even decades, to come. Static software analysis is one way to help developers and management to perceive a better and more clear picture of the code base. This possibly help to hot spot the most poorly structured code that potentially does the most harm when maintainability is concerned.
+
+\section{what is done}
+
+Six core software metrics that could be useful for analysis has been chosen to help analyze complexity and modularity of code base. The metrics are ambiguous in a way that the pure measurement numbers alone does not tell anything. Who ever is reading the analysis, needs a more profound understanding of the collected software metrics in order to not to make false conclusions. Moreover, the analysis had been implemented to the common infrastructure of the software teams to make the analysis easily accessible. The analysis is scheduled to run daily to make the analysis always have the latest data and to be able to plot metric trends. Other software metrics and trend data is being analyzed aswell but the usefulness of those metrics and especially the code smells is not certain and might just confuse developers. This thesis was written in three months, which is a small time for a big company. The usefulness of the chosen metrics and tools could not be tested in such a short period of time. This thesis has however started the usage of clearly structured static product metrics.
+
+\section{Actions in the future}
 
 
+In the future, the company can analyze output data of the made static software analysis and possibly decide common quality standards for software development. Many projects inside the software development department has similar structures and quality attribute preferences which helps the project teams to compare some of the metrics and, perhaps, imitate processes that are born with the static analysis. The next step could be to implement the static analysis for other development teams aswell. This is made easier by making the scripts and Jenkins configurations easy to modify and to implement on different projects.
 
 
 %%  LIITTEET  ------------------------------------------
