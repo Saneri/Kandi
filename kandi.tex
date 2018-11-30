@@ -1,5 +1,5 @@
 \begin{filecontents*}{\jobname.xmpdata}
-  \Title{Software quality tracking with static analysis}
+  \Title{Software quality tracking using static product metrics}
   \Author{Santeri Suitiala}
   \Keywords{software\sep metrics\sep software quality}
   \Publisher{Aalto University}
@@ -20,7 +20,7 @@
 \microtypesetup{letterspace=25}       % Kannen harvaan välistykseen
 
 \author{Santeri Suitiala}
-\title{Software quality tracking with static analysis}
+\title{Software quality tracking using static product metrics}
 
 \begin{document}
 
@@ -37,14 +37,14 @@
 %{\color{black}  % Musta teksti
 
 {\parindent0pt % Kappaleiden sisennys pois päältä
-{\fontsize{11.9pt}{11.9pt}\bfseries\sffamily\lsstyle Bachelor’s Programme in Science and Technology}
+{\fontsize{11.9pt}{11.9pt}\bfseries\sffamily\lsstyle Bachelor’s Programme in Electrical Engineering}
 
 %\color{white}  % Valkoinen teksti alkaa
 
 \vspace{13.1mm}
 
 \begin{spacing}{3.1}
-{\fontsize{35}{35}\selectfont Software quality tracking\\with static analysis}
+{\fontsize{35}{35}\selectfont Software quality tracking \\using static product metrics}
 \end{spacing}
 
 \vspace{2.2mm}
@@ -97,7 +97,7 @@
 \vspace{12.7mm}
 
 \begin{spacing}{1.63}
-{\fontsize{17.8pt}{17.8pt}\selectfont Software quality tracking\\with static analysis}
+{\fontsize{17.8pt}{17.8pt}\selectfont Software quality tracking using static product metrics}
 \end{spacing}
 
 \vspace{10.5mm}
@@ -134,7 +134,7 @@ Advisor: \> Markus Turunen
 \begin{spacing}{.9}
 {\bfseries\sffamily\lsstyle Aalto University \\
 School of Electrical Engineering \\
-Bachelor’s Programme in Science and Technology}
+Bachelor’s Programme in Electrical Engineering}
 \end{spacing}
 } % Kappaleiden sisennys takaisin käyttöön
 
@@ -168,7 +168,7 @@ Bachelor’s Programme in Science and Technology}
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
 {\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Title}\\
-\parbox[t]{\textwidth}{\raggedright\small Software quality tracking with static analysis}
+\parbox[t]{\textwidth}{\raggedright\small Software quality tracking using static product metrics}
 
 \vspace{.5mm}\rule{\textwidth}{.75pt}
 
@@ -176,7 +176,7 @@ Bachelor’s Programme in Science and Technology}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
-{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Degree programme}~~{\small Bachelor’s Programme in Science and Technology}
+{\fontsize{10.5pt}{10.5pt}\bfseries\sffamily\lsstyle Degree programme}~~{\small Bachelor’s Programme in Electrical Engineering}
 
 \vspace{-2.4mm}\rule{\textwidth}{.75pt}
 
@@ -238,7 +238,16 @@ Bachelor’s Programme in Science and Technology}
 \vspace{.8mm}
 
 {\small
-  Lorem ipsum.
+Ohjelmistoprojektit kasvavat ja monimutkaistuvat vuosi vuodelta. Ohjelmiston koon kasvaessa, sen laatu heikkenee välttämättä. Laadun heikkeneminen vaikeuttaa lähdekoodin ymmärrettävyyttä ja  voi altistaa ohjelmiston virheelliselle toiminnalle. Ohjelmiston laatu on tärkeä tekijä varsinkin suurissa ja pitkäikäisissä projekteissa, joissa kirjoitettua lähdekoodia saatetaan muokata vielä monien vuosien kuluttua. Jos laatu heikkenee liikaa, ohjelmiston ylläpidettävyydestä voi tulla erittäin haastavaa. Laatua voidaan parantaa projektin myöhemmässä vaiheessa lähdekoodin uudelleenjäsentelyllä eli refaktoroimalla (engl. refactoring).
+ABB Drives tuottaa taajuusmuuttajia, joita ohjataan laitteen sisäisellä ohjelmistolla. Taajuusmuuttajat valmistetaan kestämään vuosikymmeniä ja ohjelmistoja kehitetään ja päivitetään jatkuvasti.
+         
+Lähdekoodille voidaan suorittaa mittauksia joiden tuloksena saadaan kvantitatiivinen luku, jota kutsutaan ohjelmistometriikaksi. Ohjelmistosta voidaan mitata esimerkiksi monimutkaisuutta tai modulaarisuutta. Työn tavoitteena on tutkia, mitkä ohjelmistometriikat voisivat olla yritykselle hyödyllisiä. Lisäksi tarkoituksena on toteuttaa staattinen ohjelmistometriikka-analyysi,  joka laskee päivittäin valitut ohjelmistometriikat uusimmasta integroidusta ohjelmistosta. 
+        
+Metriikoiden valitsemiseen ei ole olemassa valmiita ohjeita tai metriikkakokonaisuuksia, ja  valinta on aina projektikohtainen. Metriikat täytyy valita kirjallisuuden ja omien johtopäätösten avulla. Työssä valittiin perustellusti kuusi metriikkaa jotka mittaavat sekä lähdekoodin monimutkaisuutta että modulaarisuutta. Metriikat ovat itsessään vain numeroita ja ne voivat olla hyvinkin epäselviä ilman aiempaa tietämystä. Metriikoita voidaan tulkita kahdella tavalla: vertaamalla tuloksia keskenään projektin eri osa-alueisiin tai tutkimalla pitkällä aikavälillä, kasvaako vai pieneneekö metriikka. Metriikkaa tulkitsevien ohjelmoijien ja päättäjien tulee tietää tarkasti, mitä metriikka tarkoittaa ja minkälaisia tuloksia on odotettavissa koska metriikkaa on erittäin helppo tulkita väärin.
+
+Staattinen metriikka-analyysi toteutettiin yhdelle ohjelmistokehitystiimille. Analyysi suoritetaan päivittäin automaattisesti ohjelmistolle, jota valikoitu ryhmä kehittää. Metriikoiden laskemiseen löytyy monta käytännöllistä aputyökalua mikä helpottaa automatisoidun analyysin toteuttamista. Analyysin tulos on kehittäjille helposti saatavilla työpaikan sisäisessä verkossa ja kuka vain voi mennä tarkastelemaan tuloksia. 
+
+Ohjelmistometriikan seuraamisen tärkeys on tullut selväksi yrityksessä. Metriikat ovat hyvin käytännöllisiä ja havainnollistavia varsinkin isojen projektien osalta. Metriikkaa on helppo tulkita väärin ja väärin tulkittuna niistä voikin olla enemmän haittaa kuin hyötyä. Valitun ohjelmistometriikan hyöty on vielä epäselvä ja metriikkaa tulisikin arvioida uudelleen heti kun se on mahdollista. Tulevaisuudessa testiryhmässä hyväksi havaitusta metriikasta voidaan luoda yrityksen ohjelmistokehitykselle yleinen laatustandardi koska monet projektit ovat hyvin samankaltaisia. Analyysi on tehty niin, että se on helppo toteuttaa myös muille yrityksen ohjelmistokehitystiimeille. Jos analyysi todetaan hyödylliseksi, seuraava askel on toteuttaa samankaltaisia analyysejä myös muille projekteille.
 }
 
 \vfill
@@ -279,15 +288,15 @@ Bachelor’s Programme in Science and Technology}
 %% INTRODUCTION
 \chapter{Introduction}
 
-“The notion of ‘software engineering’ was first proposed in 1968” \cite{sommerville2011software}. Ever since the profession started, software projects have become bigger and more complex. This is because the hardware has been growing even faster and so software engineers have been having a hard time keeping the increasing phase up \cite{brooks1987no}. The increasing code complexity raises new problems with understanding existing code and increases probability of software flaws. Software complexity can be later decreased by refactoring code. Refactoring can mean e.g. removing duplicate code by abstracting, renaming and commenting the code to make it more readable.
+“The notion of ‘software engineering’ was first proposed in 1968” \cite{sommerville2011software}. Ever since the profession started, software projects have become bigger and more complex. This is because the hardware has been growing even faster and software engineers have been having a hard time keeping the increasing phase up \cite{brooks1987no}. The increasing code complexity raises new problems with understanding existing code and increases probability of software flaws. Software complexity can be later decreased by refactoring code. Refactoring can mean e.g. removing duplicate code by abstracting, renaming and commenting the code to make it more readable.
 
 Software metric is a quantitative value calculated from a piece of a code, a whole software project or even from a software process. Software metrics are used to track software code and process attributes to determine whether the software has improved or not. This thesis focuses on static product metrics. Knowing the change of the software quality over time makes it possible to plan and allocate resources to fix software with poor quality.
 
-ABB Drives manufactures industrial drives which are controlled by software. Industrial drives are made to last for a long period of time and the same goes for the software inside the machine. Also new bugs are found and customers demand new features, which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago is something that still exists in modern companies: software size and complexity increases over time. Without refactoring, the software may become ambiguous and difficult to modify for the developers. If the project source code is too complicated, modifying might become a high risk factor. On the other hand, if too much time is spent refactoring and improving the code, no new feature gets developed and customers are left unsatisfied. In a big company, it is difficult to perceive the whole picture and so the golden mean of internal improving and feature development can be hard to find.
+ABB Drives manufactures industrial drives which are controlled by software. Industrial drives are made to last for a long period of time and the same applies for the software inside the drive. New bugs are found and customers demand new features, which makes the software evolve rapidly over time. The same effect that Brooks discovered over 30 years ago is something that still exists in modern companies: software size and complexity increases over time. Without refactoring, the software may become ambiguous and difficult to modify for the developers. If the project source code is too complicated, modifying might become a high risk factor. On the other hand, if too much time is spent refactoring and improving the code, no new feature gets developed, and customers are left unsatisfied. In a big company, it is difficult to perceive the whole picture. The golden mean of internal improving and feature development can be hard to find.
 
-This thesis introduces the underlying theory of software metrics. Furthermore a part of the task is also to determine the core metrics by getting familiar with the most commonly used metrics, try selected metrics in the real world and make conclusions. In a long term, this thesis aims to improve the understanding of software quality with the help of systematic and automatic daily static software analysis.  Analysis calculates different core software metrics and ideally represents a long-term graph to determine whether the quality and other attributes of the software is increasing or decreasing and how rapid is the change.
+This thesis introduces the underlying theory of software metrics. Furthermore a part of the task is also to determine the core metrics by getting familiar with the most commonly used metrics, try selected metrics in the real world and make conclusions. In a long term, this thesis aims to improve the understanding of software quality with the help of systematic and automatic daily static software metric analysis.  Analysis calculates different core software metrics and ideally represents a long-term graph to determine whether the quality and other attributes of the software are increasing or decreasing and how rapid the change is.
 
-The ultimate goal of this thesis is to help the company’s software development teams and management to decide when to refactor code and improve tools and dependencies and how much time should be used for it.
+The ultimate goal of this thesis is to increase the knowledge about software quality. Furthermore, a goal is to help the company’s software development teams and management to decide when to refactor code and improve tools and dependencies. This way, the development teams can estimate better, how much time and effort should be used for improving software quality.
 
 
 
@@ -301,8 +310,8 @@ Software measurement is a quantitative value calculated from a software process 
 
 \section{Classification of software metrics}
 
-Software metrics can be divided into product, process and project metrics. Project metrics \cite{dineshthakur} help project managers to estimate projects by tracking for example amount of developers or delivered lines of code. This helps to estimate similar projects in the future. Process metrics measures values concerning software development processes. Thakur lists e.g. number of errors found before the software release and conformity to schedule to be process metrics. These metrics help project stakeholder to perceive how the project is proceeding.
-Product metrics gives measurements from the developed software product \cite{sommerville2011software}.  A simple example of a process metric is source lines of code (SLOC) which simply tells the number of lines of code the whole program has altogether \cite{nguyen2007sloc}. Figure~\ref{fig:metrictree} present and help to understand the division of different kind of software metrics. This thesis focuses on product metrics. 
+Software metrics can be divided into product, process and project metrics. Project metrics \cite{dineshthakur} help project managers to evaluate and plan projects by tracking for example amount of developers or delivered lines of code. This helps to estimate similar projects in the future. Process metrics measures values concerning software development processes. Thakur lists e.g. number of errors found before the software release and conformity to schedule to be process metrics. These metrics help project stakeholder to perceive how the project is proceeding.
+Product metrics gives measurements from the developed software product \cite{sommerville2011software}.  A simple example of a process metric is source lines of code (SLOC) which simply tells the number of lines of code the whole program has altogether \cite{nguyen2007sloc}. Figure~\ref{fig:metrictree} presents and helps to understand the division of different kind of software metrics. This thesis focuses on product metrics. 
 
 \begin{figure}[t!]
 \centering
@@ -313,18 +322,18 @@ Product metrics gives measurements from the developed software product \cite{som
 
 \subsection{Product metrics}
 
-Many defined sets of product metrics exists. One defined set is e.g Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static code analysis. Dynamic metric such as server uptime is easy to interpret as 100\% would be the wanted outcome. Static metrics has the problem that those can often be ambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in other. That doesn't mean that other is better quality software than the other. This thesis study static product metrics. Dynamic metrics are also very important for projects but the company is already using 
+Many defined sets of product metrics exists. One defined set is e.g Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured e.g by reading the source code or documentation of a program. This thesis focuses on static metric analysis. Dynamic metrics such as server uptime are often easy to interpret as 100\% would be the wanted outcome. Static metrics have the problem that those can often be ambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in other. That does not mean that other is better quality software than the other. This thesis studies static product metrics. Dynamic metrics are also very important for projects, but the company is already using dynamic testing systematically as a tool. Static software analysis has also already been implemented and we focus solely on metrics instead of analyses that for example check common coding practices.
 
 \subsection{Static metrics}
 
-Static metrics can either be inspected by comparing the measurement from different files and modules or by plotting metric trend data. Measurements can be ambiguous because the outcome depends from many different factors. For example used programming language is one factor. One approaching method for static metrics is comparing different results inside the project that is being analyzed. If a part of a software project has anomalous attributes, it should be investigated further. Other method is to define a limit for a good measurement according to literature or just guessing and later adjusting the limit according to own preferences.
-When inspecting trend, the magnitude of a static product metric does not matter. Trends of metrics tells if the quality of software is increasing or decreasing to give more profound perceiving of a project.
+Static metrics can either be inspected by comparing the measurement from different files and modules or by plotting metric trend data. Measurements can be ambiguous because the outcome depends from many different factors. For example used programming language is one factor. One interpretation method for static metrics is comparing different results inside the project that is being analyzed. If a part of a software project has anomalous attributes, it should be investigated further. Other method is to define a limit for a good measurement according to literature or just guessing and later adjusting the limit according to own preferences.
+When inspecting trend, the magnitude of a static product metric does not matter. Trends of metrics tell if the quality of software is increasing or decreasing to give more profound perceiving of a project.
 
 \subsection{Traditional and object-oriented metrics}
 
-Traditional metrics can be calculated from any kind of software even if the source code is object-oriented. These metrics can be categorized as "non-object-oriented" metrics. Traditional metrics present size of the program and help stake holders to perceive a more accurate picture about what kind of program is being developed. Traditional static metrics are for example SLOC and cyclomatic complexity \cite{fenton1997software}.  
+Traditional metrics can be calculated from any kind of software even if the source code is object-oriented. These metrics can be categorized as "non-object-oriented" metrics. Traditional metrics present size of a program and help stake holders to perceive a more accurate picture about what kind of program is being developed. Traditional static metrics are for example SLOC and cyclomatic complexity \cite{fenton1997software}.  
 
-Object-oriented metrics (OOM) are specific for object-oriented programming languages. OOM measurements present structure of a project and tells for example if classes are abstract enough for the software to be maintainable. A study has estimated corrective maintenance cost saving to be 42\% when OOM are being used \cite{sarker2005overview}. A good example of OOM is Chidamber and Kemerer Metrics of then referred as CK Metrics \cite{chidamber1994metrics}.
+Object-oriented metrics (OOM) are specific for object-oriented programming languages. OOM measurements present structure of a project and tell, for example, if classes are abstract enough for the software to be maintainable. A study has estimated corrective maintenance cost saving to be 42\% when OOM metrics are being used \cite{sarker2005overview}. A good example of OOM metrics are Chidamber and Kemerer Metrics, often referred as CK Metrics \cite{chidamber1994metrics}.
 
 \section{Software quality}
 \label{chap:quality}
@@ -334,12 +343,12 @@ As bigger and more complex software systems are being developed, the need for qu
 \subsection{Software complexity}
 \label{chap:complexity}
 
-Structural software complexity measurement is considered as an important factor in software maintainability \cite{banker1989software}. Software has essential complexity that is needed in order to have a functional system and non-essential complexity that is made by accident and can be removed \cite{softcomplex2014}. This means that software must have some level of complexity, but some of the complexity can be removed with refactoring. Unfortunately, complexity is only a number and the amount of non-essential complexity is undefinable. Nevertheless, complexity measurement can hot spot complex parts of a project and indicate, whether complexity is increasing or decreasing. Complex code should be refactored into smaller tasks to make code more understandable and more easily maintainable.  The maintenance of a source code can be two or three times more expensive than the implementation \cite{banker1989software}. Most widely used metric for complexity has been McCabe’s cyclomatic complexity \cite{banker1989software}. Code with high cyclomatic complexity has many independent execute paths and is difficult to underestand. 
+Structural software complexity measurement is considered as an important factor in software maintainability \cite{banker1989software}. Software has essential complexity that is needed in order to have a functional system and non-essential complexity that is made by accident and can be removed \cite{softcomplex2014}. This means that software must have some level of complexity, but some of the complexity can be removed with refactoring. Unfortunately, complexity is only a number and the amount of non-essential complexity is undefinable. Nevertheless, complexity measurement can hot spot complex parts of a project and indicate, whether complexity is increasing or decreasing. Complex code should be refactored into smaller tasks to make code more understandable and more easily maintainable.  The maintenance of a source code can be two or three times more expensive than the implementation \cite{banker1989software}. Most widely used metric for complexity has been McCabe’s cyclomatic complexity \cite{banker1989software}. Code with high cyclomatic complexity has many independent execute paths and is difficult to understand. 
 
 \begin{figure}[t!]
 \centering
 \includegraphics[scale=1]{cohesioncoupling.jpg}
-\caption{Cohesion and coupling}
+\caption{Cohesion and coupling \protect\cite{cohesion2013poonam}}
 \label{fig:cohesioncoupling}
 \end{figure}
 
@@ -348,9 +357,9 @@ Structural software complexity measurement is considered as an important factor 
 
 Modularity tells how source code is structured. Modularity is split into relationships between the elements inside a module, cohesion, and relationships between modules, coupling \cite{stevens1999structured}. An example of cohesion and coupling is illustrated in \autoref{fig:cohesioncoupling}. For example module 1 would have one cohesion relationship and three coupling relationships from other modules. Modules can be packages, domains, namespaces or something else, depending which programming language is being used \cite{gupta2009package}.
 
-When structured right, modularity decreases complexity as discussed in \autoref{chap:complexity}. Structured code help developers to change the code later easier as the code is clearly divided in many different modules. Other aspect of modularity is reusability. Modules should be independent as possible to be reusable, meaning that coupling should be as low as possible \autoref{fig:cohesioncoupling}. If coupling is low, changing an element inside a module means that no other modules must be changed, making the module more independent and reusable. Cohesion inside a module should be high enough to make a module useful. It makes no sense to make many modules that only contains one element because the idea of modularization is to group similar elements together. If modules are independent from other modules, those can be reused in other projects or in other parts of the project while still preserving maintainability. If modules are not independent, changing a piece of a code might change something from other modules and makes refactoring a much more difficult task.
+When structured right, modularity decreases complexity as discussed in \autoref{chap:complexity}. Structured code help developers to change the code later easier as the code is clearly divided in many different modules. Other aspect of modularity is reusability. Modules should be independent as possible to be reusable, meaning that coupling should be as low as possible. If coupling is low, changing an element inside a module means that no other modules must be changed, making the module more independent and reusable. Cohesion inside a module should be high enough to make a module useful. It makes no sense to make many modules that only contains one element because the idea of modularization is to group similar elements together. If modules are independent from other modules, those can be reused in other projects or in other parts of the project while still preserving maintainability. If modules are not independent, changing a piece of a code might change something from other modules and makes refactoring a much more difficult task.
 
-Coupling is divided into two parts: efferent coupling and afferent coupling \cite{gupta2009package}. Efferent coupling means, how many elements from other modules are dependent of the elements inside the module under inspection. Afferent coupling is the opposite, meaning how many elements from inside the inspected module is dependent of outside modules. If module has high efferent and low affarent coupling the module is instable. High affarent and low efferent coupling means that the module is stable. Instability is not a bad attribute but a module should clearly be either stable or instable to have a clear meaning \cite{gupta2009package}.
+Coupling is divided into two parts: efferent coupling and afferent coupling \cite{gupta2009package}. Efferent coupling means, how many elements from other modules are dependent of the elements inside the module under inspection. Afferent coupling is the opposite, meaning how many elements from inside the inspected module is dependent of outside modules. If module has high efferent and low affarent coupling the module is unstable. High affarent and low efferent coupling means that the module is stable. Instability is not a bad attribute but a module should clearly be either stable or unstable to have a clear meaning \cite{gupta2009package}.
 
 
 %-Avoiding bugs 
@@ -365,11 +374,11 @@ Coupling is divided into two parts: efferent coupling and afferent coupling \cit
 %% CHAPTER 3
 \chapter{Determining useful metrics}
 
-Determining the right software metrics is not always a simple task. In this case, the target will be static product metrics (see \autoref{chap:theory}). No predefined package of metrics exists that works for every software project. Every project is unique which means that new set of metrics should be selected for each project. However if two projects have a lot in common, the same metrics can be applied. Even after defining metrics, static measurements can be ambiguous due to the fact that the measurement outputs are just numbers. The real correlation of the measurements to the software quality may be easy to misinterpret. The measurement data must be analyzed in order to be able to understand what attributes, if any, it correlates \cite{sommerville2011software}. 
+Determining the right software metrics is not always a simple task. In this case, the target will be static product metrics. No predefined package of metrics exists that works for every software project. Every project is unique which means that new set of metrics should be selected for each project. However if two projects have a lot in common, the same metrics can be applied. Even after defining metrics, static measurements can be ambiguous due to the fact that the measurement outputs are just numbers. The real correlation of the measurements to the software quality may be easy to misinterpret. The measurement data must be analyzed in order to be able to understand what attributes, if any, it correlates \cite{sommerville2011software}. 
 
 \section{Motivation to implement static analysis}
 
-Recently, upper management has stated clear instructions that software quality must be improved in the company. A certain part of the working effort is allowed to be used for source code refactoring and internal improving. Static software analysis will be implemented to help stake holders to perceive a picture of different quality attributes of the software. As stated, software complexity is commonly increasing and the target company of this thesis is no different. 
+Quality is an area that ABB want to invest in more and more. Quality product needs, of course, quality software. A certain part of the working effort is allowed to be used for source code refactoring and internal improving. Software metrics analysis will be implemented to help stakeholders to perceive a picture of different quality attributes of the software. The need for software metrics is unclear, but the underlying literature and theory seem to be promising. The idea is to take metrics into use and determine after a short period of usage, if metrics are valuable or not.
 
 %\subsection{Software metrics in agile development process}
 %
@@ -381,19 +390,19 @@ As there exists no set of predefined rules that could be used in this context, o
 
 \subsection{Code smells}
 
-Static software analysis contains possibility to use code smells (see \autoref{chap:sofanatool}). Code smell is a small and fast check for any characteristic that might indicate a software problem \cite{fowlercodesmell}. A smell does not mean that a problem exists but rather that the source code should be reviewed and, if a problem exists, fixed. Code smell usage might be valuable but in a bigger project, so many smells will be present that the few important smells, that are crucial for the project quality, will not be found. Code smells does not add much value when used in static software analysis and should rather be used to check quality on each commit to check smells for the files to be committed \cite{tufano2015and}. This means that code smells are not implemented to the analysis. If needed, a development team should implement a separate code analysis to analyze each commit to the source code. This could be achieved for example with tools like Microsoft Style Cop\footnote{https://github.com/StyleCop/StyleCop}. The goal of this thesis is to implement a static software analysis which is run daily and not on each commit. Code smells will not be implemented to the analysis. 
+Static software analysis contains possibility to use code smells (see \autoref{chap:sofanatool}). Code smell is a small and fast check for any characteristic that might indicate a software problem \cite{fowlercodesmell}. A smell do not mean that a problem exists but rather that the source code should be reviewed and, if a problem exists, fixed. Code smell usage might be valuable but in a bigger project, so many smells will be present that the few important smells, that are crucial for the project quality, will not be found. Code smells does not add much value when used in daily analysis and should rather be used to check quality on each commit to check smells for the files to be committed \cite{tufano2015and}. This means that code smells are not implemented to the analysis. If needed, a development team should implement a separate code analysis to analyze each commit to the source code. This could be achieved for example with tools like Microsoft Style Cop\footnote{https://github.com/StyleCop/StyleCop}. The goal of this thesis is to implement a static software analysis which is run daily and not on each commit. Code smells will not be implemented to the analysis. 
 
 \subsection{Complexity metrics}
 
 Three complexity metrics will be selected to analyze maintainability (see: \autoref{chap:complexity}) from different points of view. Cyclomatic complexity is a widely used metric that tells number of ways that a program can be executed. It is a good way to see, for example, if a part of a program  has a complex switch sentence or something similar, that is difficult to read.
 Maintainability index is a number that is a combination of different metrics that has been stated to correlate maintainability well. This metric is the most unambiguous metric that is being selected because a higher number means better maintainability. Maintainability index helps less experienced programmers to understand, whether complexity is increasing or decreasing. Third is duplicate code which tells percentage of code duplications in the code base. If, for example, a method is found in two different places, changing of that method means that the change must be implemented twice.
 
-\begin{figure}[t!]
+\begin{table}[t!]
 \centering
-\includegraphics[scale=0.8]{metrics.png}
 \caption{The chosen metrics}
+\includegraphics[scale=1]{metrics.png}
 \label{fig:metrics}
-\end{figure}
+\end{table}
 
 \subsection{Modularity metrics}
 
