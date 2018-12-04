@@ -122,7 +122,7 @@ Otaniemi, \today
 
 \begin{tabbing}
 Supervisor (ABB):\hspace{6mm} \= Jorma Keronen \\
-Supervisor (Aalto):\hspace{6mm} \= Marko Hinkkanen \\
+Supervisor (Aalto):\> Marko Hinkkanen \\
 Advisor: \> Markus Turunen
 \end{tabbing}
 \vspace{-4mm}
@@ -389,13 +389,15 @@ Quality is an area that ABB want to invest in more and more. Quality product nee
 As there exists no set of predefined rules that could be used in this context, only logical way is to make a sophisticated guess about what the suitable metrics could be. This can be done iteratively so that chosen metrics are used a defined amount of time and then evaluated again. To do this there must be a way to determine whether the metrics are correlating the wanted attribute or not. One of the goals of this thesis is to implement a first iteration of metrics by choosing metrics according to literature and guessing. The meaning of each chosen metric must be known. If the quality attribute correspondence of a chosen metric is uncertain, it will be impossible to use correctly and will become a number on the board, without meaning.
 
 \subsection{Code smells}
+\label{chap:codesmells}
 
-Static software analysis contains possibility to use code smells (see \autoref{chap:sofanatool}). Code smell is a small and fast check for any characteristic that might indicate a software problem \cite{fowlercodesmell}. A smell do not mean that a problem exists but rather that the source code should be reviewed and, if a problem exists, fixed. Code smell usage might be valuable but in a bigger project, so many smells will be present that the few important smells, that are crucial for the project quality, will not be found. Code smells does not add much value when used in daily analysis and should rather be used to check quality on each commit to check smells for the files to be committed \cite{tufano2015and}. This means that code smells are not implemented to the analysis. If needed, a development team should implement a separate code analysis to analyze each commit to the source code. This could be achieved for example with tools like Microsoft Style Cop\footnote{https://github.com/StyleCop/StyleCop}. The goal of this thesis is to implement a static software analysis which is run daily and not on each commit. Code smells will not be implemented to the analysis. 
+Static software analysis contains possibility to use code smells. Code smell is a small and fast check for any characteristic that might indicate a software problem \cite{fowlercodesmell}. A smell do not mean that a problem exists but rather that the source code should be reviewed and, if a problem exists, fixed. Code smell usage might be valuable but in a bigger project, so many smells will be present that the few important smells, that are crucial for the project quality, will not be found. Code smells does not add much value when used in daily analysis and should rather be used to check quality on each commit to check smells for the files to be committed \cite{tufano2015and}. This means that code smells are not implemented to the analysis. If needed, a development team should implement a separate code analysis to analyze each commit to the source code. This could be achieved for example with tools like Microsoft Style Cop\footnote{https://github.com/StyleCop/StyleCop}. The goal of this thesis is to implement a static software analysis which is run daily and not on each commit. Code smells will not be implemented to the analysis. 
 
 \subsection{Complexity metrics}
 
 Three complexity metrics will be selected to analyze maintainability (see: \autoref{chap:complexity}) from different points of view. Cyclomatic complexity is a widely used metric that tells number of ways that a program can be executed. It is a good way to see, for example, if a part of a program  has a complex switch sentence or something similar, that is difficult to read.
-Maintainability index is a number that is a combination of different metrics that has been stated to correlate maintainability well. This metric is the most unambiguous metric that is being selected because a higher number means better maintainability. Maintainability index helps less experienced programmers to understand, whether complexity is increasing or decreasing. Third is duplicate code which tells percentage of code duplications in the code base. If, for example, a method is found in two different places, changing of that method means that the change must be implemented twice.
+Lines of code metric indicates how much source code the project has. This metric is the most unambiguous metric that is being selected because it is very intuitive to think that big projects are more difficult to maintain. Lines of code helps less experienced programmers to understand, whether complexity is increasing or decreasing. Third is duplicate code which tells percentage of code duplications in the code base. If, for example, a method is found in two different places, changing of that method means that the change must be implemented twice.
+Sometimes a big project with a big lines of code value can be easier to maintain than a small project. This is where cyclomatic complexity and duplicate code percentage should be used to analyze complexity more deeply.
 
 \begin{table}[t!]
 \centering
@@ -406,7 +408,7 @@ Maintainability index is a number that is a combination of different metrics tha
 
 \subsection{Modularity metrics}
 
-Also three metrics that tend to correlate modularity, are being selected. Afferent and efferent coupling (see \autoref{chap:modularity}) will tell how mixed the modules are. Modules should have low coupling and they should be either stable or instable as possible. Coupling will be inspected in module level but could also be analyzed for class level to see how stable or instable individual classes are. Class level coupling however, is not selected as core metrics in this case. Cohesion means total coupling between classes inside each module. If cohesion is low, the inspected module might be useless meaning that either more elements must be added or the few elements that the module has, must be moved elsewhere. These three metrics can be very ambiguous if not understood correctly. Modular refactoring can be very laborious and might be almost impossible or too much of a time waste, if the project is big and heavily coupled. However it might offer a big improvement concerning reusability and maintainability. The chosen metrics and their main corresponding attributes are listed in \autoref{fig:metrics}. The metrics may correspond to other quality attributes aswell. 
+Also three metrics that tend to correlate modularity, are being selected. Afferent and efferent coupling (see \autoref{chap:modularity}) will tell how mixed the modules are. Modules should have low coupling and they should be either stable or unstable as possible. Coupling will be inspected in module level but could also be analyzed for class level to see how stable or unstable individual classes are. Class level coupling however, is not selected as core metrics in this case. Cohesion means total coupling between classes inside each module. If cohesion is low, the inspected module might be useless meaning that either more elements must be added or the few elements that the module has, must be moved elsewhere. These three metrics can be very ambiguous if not understood correctly. Modular refactoring can be very laborious and might be almost impossible or too much of a time waste, if the project is big and heavily coupled. However it might offer a big improvement concerning reusability and maintainability. The chosen metrics and their main corresponding attributes are listed in \autoref{fig:metrics}. The metrics may correspond to other quality attributes aswell. 
 
 \section{Source code examples}
 To really test if the metrics are correlating the wanted software quality attributes, low and high quality source code examples are needed to be determined \cite{coleman1994using}. These examples should be good or bad quality code according to the whole development teams opinion. After good and bad quality has been concretely defined, figuring out which metrics correlate to the quality can be initiated. 
@@ -426,7 +428,7 @@ For a concrete implementation, some software tools are needed. The preference is
 \subsection{Software analysis tool}
 \label{chap:sofanatool}
 
-CppDepend\footnote{https://www.cppdepend.com/} is a commercial tool specifically made to analyze C/C++ code. It provides many of the common software metrics and has a good-looking user interface. There are many other promising tools but investigating available options is out of scope on this thesis. Using this tool gives a good indication if software metrics are useful for the software development team or not. If the tool later turns out to be exchangeable with a more usable one, it can easily be replaced.
+CppDepend\footnote{https://www.cppdepend.com/} is a commercial tool specifically made to analyze C/C++ code. It provides many of the common software metrics and has a good-looking user interface. There are many other promising tools but investigating available options is out of scope on this thesis. Using this tool gives a good indication if software metrics are useful for the software development team or not. If the tool later turns out to be exchangeable with a more usable one, it can easily be replaced. The tool automatically provides code smells as explained in \autoref{chap:codesmells}. Code smells will be disabled from CppDepend analysis.
 
 \subsection{Analysis automation tool}
 
@@ -449,6 +451,18 @@ The selected tools will form a system that will create desired analysis daily to
 This way the process will be transparent and available to the whole software development team.
 
 The whole process takes only about ten minutes to run and is not a strenuous task for the build server. The analysis tool does an incremental analysis, which means that if some part of the source code is not changed, it will be copied from the last report and not analyzed again.
+
+\begin{table}[t!]
+\centering
+\caption{Analysis results}
+\includegraphics[scale=1]{results.png}
+\label{fig:results}
+\end{table}
+
+\section{System outcome}
+CppDepend does not support duplicate code and cohesion metrics. Four metrics, cyclomatic complexity, lines of code, afferent and efferent coupling, has been analyzed daily during a period of three weeks. \autoref{fig:results} shows the latest results of the analysis. First clear result is that each of the metrics have changed less than one percent during the inspection period. Total lines of code is the only metric that has had small changes which is very natural for a software project. Second result is that the metrics are as ambiguous as thought. In this case, types mean classes as the programming language is C/C++. Average cyclomatic complexity of classes is a good metric to watch over time to see if complexity is increasing or decreasing. Furthermore the analysis tool allows individual classes to be inspected. A query that outputs the most complex classes can be made if instant results are wanted. 
+
+Average efferent and afferent coupling for classes are the most difficult and ambiguous metrics in this analysis. The reason that the results are so small values might be due to broken dependencies in the project. This means that the project is not setup completely correctly in the analysis tool. Results can still be used to evaluate whether the metrics are useful or not.
 
 
 
