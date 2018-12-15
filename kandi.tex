@@ -103,7 +103,7 @@
 \vspace{10.5mm}
 
 \begin{spacing}{1.2}
-{\fontsize{13pt}{13pt}\selectfont Utilization and deployment of static software metrics in software projects}
+{\fontsize{13pt}{13pt}\selectfont Utilization and deployment of static software \\metrics in software projects}
 \end{spacing}
 
 \vspace{10.6mm}
@@ -322,7 +322,7 @@ Product metrics gives measurements from the developed software product \cite{som
 
 \subsection{Product metrics}
 
-Many defined sets of product metrics has been declared in the literature. One defined set is for example Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured for example by reading the source code or documentation of a program. This thesis focuses on static metric analysis. Dynamic metrics such as server uptime are often easy to interpret as 100\% would be the wanted outcome. However, static metrics can often be ambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in another. That does not mean that the other is better quality software than the other. This thesis studies static product metrics. Dynamic metrics are also very important for projects, but the company is already using dynamic testing systematically as a tool. Static software analysis has also already been implemented and we focus solely on metrics instead of analyses that for example check common coding practices.
+Many defined sets of product metrics has been declared in the literature. One defined set is for example Halstead metrics \cite{al2005analysis}. It is also possible to adjust an existing metric for specified software or implement a completely new metric. A product metric can either be dynamic or static \cite{sommerville2011software}. Dynamic metrics are measured when a program is executing and static metrics can be measured for example by reading the source code or documentation of a program. This thesis focuses on static metric analysis. Dynamic metrics such as server uptime are often easy to interpret as 100\% would be the wanted outcome. However, static metrics can often be ambiguous and easily to be misinterpreted. For example SLOC can be 5000 in one product and one million in another. That does not mean that the other is better quality software than the other. This thesis studies static product metrics. Dynamic metrics are also very important for projects, but the company is already using dynamic testing systematically as a tool. Static software analysis has also already been implemented and solely metrics are analyzed instead of analyses that for example check common coding practices.
 
 \subsection{Static metrics}
 
@@ -345,12 +345,7 @@ As bigger and more complex software systems are being developed, the need for qu
 
 Structural software complexity measurement is considered as an important factor in software maintainability \cite{banker1989software}. Software has essential complexity that is needed in order to have a functional system and non-essential complexity that is made by accident and can be removed \cite{softcomplex2014}. This means that software must have some level of complexity, but some of the complexity can be removed with refactoring. Unfortunately, complexity is only a number and the amount of non-essential complexity is undefinable. Nevertheless, complexity measurement can hot spot complex parts of a project and indicate, whether complexity is increasing or decreasing. Complex code should be refactored into smaller tasks to make code more understandable and more easily maintainable.  The maintenance of a source code can be two or three times more expensive than the implementation \cite{banker1989software}. Most widely used metric for complexity has been McCabe’s cyclomatic complexity \cite{banker1989software}. Code with high cyclomatic complexity has many independent execute paths and is difficult to understand. 
 
-\begin{figure}[t!]
-\centering
-\includegraphics[scale=1]{cohesioncoupling.jpg}
-\caption{Cohesion and coupling \protect\cite{cohesion2013poonam}}
-\label{fig:cohesioncoupling}
-\end{figure}
+
 
 \subsection{Software modularity}
 \label{chap:modularity}
@@ -361,6 +356,12 @@ When structured right, modularity decreases complexity as discussed in \autoref{
 
 Coupling is divided into two parts: efferent coupling and afferent coupling \cite{gupta2009package}. Efferent coupling means, how many elements from other modules are dependent of the elements inside the module under inspection. Afferent coupling is the opposite, meaning how many elements from inside the inspected module is dependent of outside modules. If module has high efferent and low affarent coupling the module is unstable. High affarent and low efferent coupling means that the module is stable. Instability is not a bad attribute but a module should clearly be either stable or unstable to have a clear meaning \cite{gupta2009package}.
 
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=1]{cohesioncoupling.jpg}
+\caption{Cohesion and coupling \protect\cite{cohesion2013poonam}}
+\label{fig:cohesioncoupling}
+\end{figure}
 
 %-Avoiding bugs 
 %-complexity = cyclomatic complexity, NPath?
@@ -452,21 +453,22 @@ This way the process will be transparent and available to the whole software dev
 
 The whole process takes only about ten minutes to run and is not a strenuous task for the build server. The analysis tool does an incremental analysis, which means that if some part of the source code is not changed, it will be copied from the last report and not analyzed again.
 
-\begin{table}[t!]
-\centering
-\caption{Analysis results}
-\includegraphics[scale=1]{results.png}
-\label{fig:results}
-\end{table}
-
 \section{System outcome}
 CppDepend does not support duplicate code metrics. Five metrics, cyclomatic complexity, lines of code, cohesion, afferent and efferent coupling, has been analyzed daily during a period of four weeks. \autoref{fig:results} shows the latest results of the analysis. Column "Result 1" shows the results from the first week and the "Result 2" is the results from the fourth week. First clear result is that each of the metrics have changed less than one percent during the inspection period. Most of the metrics have small changes which is very natural for a software project. Second result is that the metrics are as ambiguous as thought. In this case, types mean classes as the programming language used is C/C++. 
 
-Complexity metric are good metrics to watch over time to see if complexity is increasing or decreasing. Total lines of code and cyclomatic complexity have increased by small amount. These complex metrics indicate that something new have been implemented to the source code which has increased the complexity. If new refactoring practices are implemented, these metrics can be used to evaluate if the practices are decreasing complexity growth or not. 
+Complexity metrics are good metrics to watch over time to see if complexity is increasing or decreasing. Total lines of code and cyclomatic complexity have increased by small amount. These complex metrics indicate that something new have been implemented to the source code which has increased the complexity. If new refactoring practices are implemented, these metrics can be used to evaluate if the practices are decreasing complexity growth or not. 
 
+Modularity could not be analyzed for bigger modules than classes. Analyzing classes will be sufficient for evaluating the metrics.
 Cohesion and average efferent and afferent coupling for classes are the most difficult and ambiguous metrics in this analysis. The reason that the results are so small values might be due to broken dependencies in the analysis project. This means that the project is not setup completely correctly in the analysis tool. Results can still be used to evaluate whether the metrics are useful or not. These modularity metrics have not changed much. This is understandable because the result values are averages and such small numbers. Average modularity metrics are not very informative because modules can be stable or unstable (see \autoref{chap:modularity}). This means that the quality of modules cannot be evaluated from a average value. Modularity metrics should be calculated for each individual module in order to get more informative data about modularity. This thesis analysed types but a better point of inspection could be namespaces or some other bigger modules.
 
 The analysis tool allows individual classes, methods and namespaces to be inspected. This could be used to further analyse project modularity but should not be included to the analysis. Analysis of each element in code base would fill the analysis full of non-informative data which could make the important data hard to find.
+
+\begin{table}[t!]
+\centering
+\caption{Analysis results}
+\includegraphics[scale=0.8]{results.png}
+\label{fig:results}
+\end{table}
 
 
 %% CHAPTER 5
@@ -476,8 +478,7 @@ Quality is a big concern in large software projects that take long time to devel
 It has become clear that software metrics are an important factor in the modern software development business. Software metrics are not very widely studied and the needed metrics differ on each project and company. 
 
 \section{What is needed}
-
-The software development department is concerned with the overall quality of software projects. It takes time to understand poorly written and structured code. Refactoring can help to make the code base more understandable and maintainable and to ensure that complexity does not get out of control. This is a huge concern, as the software that is being developed is supposed to be supported many years, or even decades, to come. Static software analysis is one way to help developers and management to perceive a better and more clear picture of the code base. This possibly help to highlight the most poorly structured code that potentially does the most harm when maintainability is concerned.
+The software development department wants to ensure that the achieved software quality will not decrease during the many years of development. It takes time to understand poorly written and structured code. Refactoring can help to make the code base more understandable and maintainable and to ensure that complexity does not get out of control. This is a huge concern, as the software that is being developed is supposed to be supported many years, or even decades, to come. Static software analysis is one way to help developers and management to perceive a better and more clear picture of the code base. This possibly helps to highlight the most poorly structured code that potentially does the most harm when maintainability is concerned.
 
 \section{What is done}
 
@@ -486,7 +487,7 @@ Six core software metrics that could be useful for analysis have been chosen to 
 \section{Actions in the future}
 
 
-In the future, the company can analyze output data of the made static software analysis and possibly decide common quality standards for software development. Many projects inside the software development department have similar structures and quality attribute preferences which helps the project teams to compare some of the metrics and, perhaps, imitate processes that are born with the static analysis. The next step could be to implement the static analysis for other development teams as well. This is made easier by making the scripts and Jenkins configurations easy to modify and to implement on different projects.
+In the future, the company can analyze output data of the made static software analysis and possibly decide common quality standards for software development. Many projects inside the software development department have similar structures and quality attribute preferences which helps the project teams to compare some of the metrics and, perhaps, imitate processes that are born with the static analysis. The next step could be to implement the static analysis for other development teams as well. This is made easier by making the scripts and Jenkins configurations easy to modify and to implement on different projects. However, The usefulness of the analysis must be tested and suitable metrics must be declared before any further actions can be done.
 
 
 %%  LIITTEET  ------------------------------------------
